@@ -10,7 +10,7 @@
             --bg-color: #f9f7f2;
             --card-bg: #ffffff;
             --text-main: #333333;
-            --accent: #bc987e; /* Muted terracotta/sand */
+            --accent: #bc987e; 
             --border: #e8e2d9;
         }
 
@@ -43,13 +43,15 @@
             color: var(--accent);
         }
 
-        p.subtitle {
-            font-style: italic;
-            color: #888;
-            margin-top: 5px;
+        /* Image Styling */
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            filter: grayscale(20%); /* Adds to the aesthetic */
         }
 
-        /* Tag #1: <section> used for structural separation */
         section {
             margin-bottom: 40px;
             line-height: 1.8;
@@ -63,7 +65,19 @@
             margin-bottom: 15px;
         }
 
-        /* Tag #2: <cite> used for aesthetic attribution */
+        /* Link Styling */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #8a6d58;
+            border-bottom-color: #8a6d58;
+        }
+
         cite {
             display: block;
             margin-top: 10px;
@@ -82,7 +96,6 @@
             margin-top: 60px;
         }
 
-        /* Tag #3: <footer> for page completion */
         footer {
             margin-top: 100px;
             text-align: center;
@@ -98,8 +111,11 @@
     <div class="wrapper">
         <header>
             <h1>Artificial General Intelligence</h1>
-            <p class="subtitle">The intersection of silicon and sentience.</p>
+            <p style="font-style: italic; color: #888;">The intersection of silicon and sentience.</p>
         </header>
+
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000" 
+             alt="AI Visualization" class="hero-img">
 
         <section>
             <h2>The Concept</h2>
@@ -107,18 +123,18 @@
         </section>
 
         <section>
-            <h2>The Horizon</h2>
-            <p>While current systems excel at specific patterns, AGI aims for cross-domain reasoning and self-aware problem solving.</p>
+            <h2>Educational Resources</h2>
+            <p>To learn more about how our school board views these technologies, you can visit the 
+               <a href="https://sites.google.com/ocdsb.ca/ocdsb-student-portal/ai-for-students" target="_blank">OCDSB AI Student Portal</a>.
+            </p>
             <cite>Source: Exploration of 2026 Computational Theory</cite>
         </section>
 
         <div class="update-box">
             <strong>Exit Card 407 Change Log:</strong><br>
-            I have refined the visual identity of this page using a neutral, editorial CSS palette. 
-            <strong>New HTML Tags implemented:</strong> 
-            1. <code>&lt;section&gt;</code> for content grouping. 
-            2. <code>&lt;cite&gt;</code> for source styling. 
-            3. <code>&lt;footer&gt;</code> for the document end-mark.
+            I have refined the visual identity using a neutral editorial palette. 
+            <strong>Updates:</strong> Added an aesthetic header image and a verified educational link.
+            <strong>New HTML Tags:</strong> &lt;section&gt;, &lt;cite&gt;, and &lt;footer&gt;.
         </div>
 
         <footer>
