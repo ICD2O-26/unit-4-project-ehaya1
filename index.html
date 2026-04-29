@@ -1,35 +1,27 @@
 <!DOCTYPE html>
-
-<!-- The <html> tag is the root element. Everything on the page lives inside it. -->
 <html lang="en">
-
-<!-- The <head> section holds page settings that are NOT shown on the page itself. -->
 <head>
-  <!-- <meta charset> tells the browser to use UTF-8 encoding (handles all letters/symbols) -->
   <meta charset="UTF-8" />
-  <!-- <meta viewport> makes the page scale correctly on phones and tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGI: The Future of Mind — Eliza Hayat</title>
 
-  <!-- <title> sets the text shown on the browser tab -->
-  <title>Artificial General Intelligence — Eliza Hayat</title>
-
-  <!-- <style> lets us write CSS directly inside the HTML file -->
   <style>
     /* ── Google Fonts ── */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
-    /* ── CSS Variables (design tokens) ── */
+    /* ── Baddie Professional CSS Variables ── */
     :root {
-      --ink:       #0f0e0d;
-      --paper:     #f5f0e8;
-      --accent:    #c0392b;
-      --accent2:   #1a3a5c;
-      --muted:     #7a746a;
-      --border:    #ccc5b8;
-      --highlight: #fde68a;
+      --ink:       #ffffff;      /* Clean White */
+      --paper:     #0a0a0a;      /* Deep Obsidian */
+      --accent:    #ff3cac;      /* Power Pink */
+      --accent2:   #00f2fe;      /* Electric Cyan */
+      --muted:     #888888;      /* Sleek Grey */
+      --border:    #222222;      /* Subtle Divider */
+      --highlight: rgba(255, 60, 172, 0.25);
+      --glass:     rgba(255, 255, 255, 0.03);
       --mono:      'JetBrains Mono', monospace;
-      --serif:     'Source Serif 4', Georgia, serif;
-      --display:   'Playfair Display', Georgia, serif;
+      --sans:      'Plus Jakarta Sans', sans-serif;
+      --display:   'Playfair Display', serif;
     }
 
     /* ── Reset & Base ── */
@@ -38,20 +30,22 @@
     body {
       background-color: var(--paper);
       color: var(--ink);
-      font-family: var(--serif);
+      font-family: var(--sans);
       font-size: 1.1rem;
-      line-height: 1.8;
-      max-width: 860px;
+      line-height: 1.7;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+      padding: 2rem 1.5rem 6rem;
+      /* Subtle grid texture for that tech vibe */
+      background-image: radial-gradient(circle at 1px 1px, #1a1a1a 1px, transparent 0);
+      background-size: 40px 40px;
     }
 
     /* ── Navigation ── */
-    /* <nav> = semantic tag for navigation links */
     nav {
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 0.5rem;
-      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 4rem;
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
@@ -59,740 +53,279 @@
     }
     nav .site-label {
       font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      color: var(--accent);
       text-transform: uppercase;
+      letter-spacing: 0.15em;
       flex: 1;
     }
     nav a {
       font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--accent2);
+      font-size: 0.75rem;
+      color: var(--ink);
       text-decoration: none;
-      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
     }
-    nav a:hover { text-decoration: underline; }
+    nav a:hover { color: var(--accent2); }
 
-    /* ── Header / Hero ── */
+    /* ── Header ── */
     header {
-      margin-bottom: 3rem;
-      border-left: 5px solid var(--accent);
-      padding-left: 1.5rem;
+      margin-bottom: 4rem;
+      text-align: center;
     }
     header .label {
       font-family: var(--mono);
       font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.12em;
+      color: var(--accent2);
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      display: block;
     }
-
-    /* <h1> = the single main title of the page */
     h1 {
       font-family: var(--display);
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 900;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 1rem;
+      line-height: 1;
+      background: linear-gradient(to right, var(--ink), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
     }
     header p.subtitle {
-      font-style: italic;
+      font-size: 1.2rem;
       color: var(--muted);
-      font-size: 1.05rem;
       max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
     }
 
-    /* ── Section Headings ── */
-    /* <h2> = section-level headings, smaller than h1 */
+    /* ── Sections ── */
     h2 {
       font-family: var(--display);
-      font-size: 1.7rem;
-      font-weight: 700;
+      font-size: 2rem;
       color: var(--accent2);
-      margin: 2.5rem 0 0.75rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid var(--border);
+      margin: 4rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    /* <h3> = sub-section headings, smaller than h2 */
     h3 {
-      font-family: var(--display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 1.5rem 0 0.4rem;
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      color: var(--accent);
     }
+    p { margin-bottom: 1.5rem; color: #d1d1d1; }
 
-    /* <p> = a paragraph of text */
-    p { margin-bottom: 1rem; }
-
-    /* ── Semantic Sections ── */
-    /* <section> = a thematic grouping of content */
-    section { margin-bottom: 2rem; }
-
-    /* <article> = self-contained content (could stand alone) */
+    /* ── The Baddie "Glass" Article ── */
     article {
-      background: #ede8de;
+      background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.2rem 1.5rem;
-      margin: 1.5rem 0;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    article h3 { margin-top: 0; }
+    article:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
 
-    /* ── Aside ── */
-    /* <aside> = supplementary info related to the main content */
+    /* ── Aside Info ── */
     aside {
       float: right;
-      width: 260px;
-      margin: 0 0 1rem 2rem;
-      padding: 1rem;
-      background: var(--accent2);
-      color: #e8eef4;
+      width: 280px;
+      margin: 0 0 2rem 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #1a1a1a, #000);
+      border-left: 3px solid var(--accent);
       font-size: 0.9rem;
-      line-height: 1.6;
-      border-radius: 3px;
+      border-radius: 0 8px 8px 0;
     }
-    aside strong {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #8ab4d4;
-      margin-bottom: 0.5rem;
-    }
-    @media (max-width: 620px) {
-      aside { float: none; width: 100%; margin: 1rem 0; }
-    }
+    @media (max-width: 700px) { aside { float: none; width: 100%; margin: 2rem 0; } }
 
-    /* ── Figure & Figcaption ── */
-    /* <figure> = wraps an image with its caption */
-    figure {
-      margin: 2rem 0;
-      text-align: center;
-    }
-    /* <img> = embeds an image */
+    /* ── Visuals ── */
+    figure { margin: 3rem 0; text-align: center; }
     figure img {
       max-width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      display: block;
-      margin: 0 auto;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.2));
     }
-    /* <figcaption> = the caption below a figure */
-    figcaption {
-      font-size: 0.82rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-top: 0.5rem;
-    }
+    figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 1rem; }
 
-    /* ── Blockquote ── */
-    /* <blockquote> = a long quotation, indented and styled */
+    /* ── Elements ── */
     blockquote {
+      font-family: var(--display);
+      font-size: 1.4rem;
       border-left: 4px solid var(--accent);
-      margin: 1.5rem 0;
-      padding: 0.75rem 1.5rem;
-      background: #ede8de;
-      font-style: italic;
-      color: #3a3530;
+      padding: 1rem 2rem;
+      margin: 3rem 0;
+      background: var(--glass);
     }
-    blockquote cite {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      font-style: normal;
-      font-family: var(--mono);
-    }
+    cite { display: block; font-size: 0.8rem; font-family: var(--mono); color: var(--accent2); margin-top: 1rem; }
+    mark { background: var(--highlight); color: var(--ink); padding: 0 0.3em; }
+    abbr { text-decoration: underline dotted var(--accent2); cursor: help; }
+    
+    table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: var(--mono); font-size: 0.85rem; }
+    th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--accent); color: var(--accent2); }
+    td { padding: 1rem; border-bottom: 1px solid var(--border); }
+    tr:hover td { background: var(--glass); }
 
-    /* ── Lists ── */
-    /* <ul> = unordered (bullet) list; <ol> = ordered (numbered) list; <li> = list item */
-    ul, ol {
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    li { margin-bottom: 0.35rem; }
+    details { background: var(--glass); border: 1px solid var(--border); padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+    summary { font-weight: 600; cursor: pointer; color: var(--accent2); }
 
-    /* ── Table ── */
-    /* <table> = a grid of rows and columns */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-    }
-    /* <th> = table header cell; <td> = table data cell; <tr> = table row */
-    th {
-      background: var(--accent2);
-      color: #fff;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.6rem 0.9rem;
-      text-align: left;
-    }
-    td {
-      padding: 0.55rem 0.9rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-    tr:nth-child(even) td { background: #ede8de; }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
 
-    /* ── Mark ── */
-    /* <mark> = highlights text, like a yellow highlighter */
-    mark {
-      background: var(--highlight);
-      padding: 0 0.2em;
-      border-radius: 2px;
-    }
+    hr { border: 0; border-top: 1px solid var(--border); margin: 4rem 0; }
 
-    /* ── Abbr ── */
-    /* <abbr> = abbreviation; the title= attribute shows the full form on hover */
-    abbr {
-      text-decoration: underline dotted var(--muted);
-      cursor: help;
-    }
-
-    /* ── Details & Summary ── */
-    /* <details> = collapsible section; <summary> = its visible label */
-    details {
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      margin: 1rem 0;
-      padding: 0.75rem 1rem;
-      background: #ede8de;
-    }
-    summary {
-      font-family: var(--mono);
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--accent2);
-      letter-spacing: 0.04em;
-    }
-    details[open] summary { margin-bottom: 0.75rem; }
-
-    /* ── Code ── */
-    /* <code> = inline code snippet */
-    code {
-      font-family: var(--mono);
-      font-size: 0.85em;
-      background: #e2ddd5;
-      padding: 0.1em 0.35em;
-      border-radius: 3px;
-    }
-
-    /* ── Hyperlinks ── */
-    /* <a href> = a clickable hyperlink */
-    a { color: var(--accent); }
-    a:hover { color: var(--accent2); }
-
-    /* ── Horizontal Rule ── */
-    /* <hr> = a thematic break / dividing line */
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2.5rem 0;
-    }
-
-    /* ── Footer ── */
-    /* <footer> = the bottom section of the page (author, date, etc.) */
     footer {
-      margin-top: 3rem;
-      padding-top: 1rem;
-      border-top: 2px solid var(--ink);
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
       font-family: var(--mono);
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       color: var(--muted);
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
     }
   </style>
 </head>
 
-<!-- <body> = everything the visitor actually SEES on the page -->
 <body>
 
-  <!-- NAVIGATION BAR -->
-  <!-- <nav> is a semantic tag that tells the browser "these are navigation links" -->
   <nav>
-    <span class="site-label">ICD2D · Unit 4 Project · 2026</span>
-    <!-- <a href="#id"> scrolls to a section on the same page (anchor link) -->
-    <a href="#what">What Is AGI?</a>
-    <a href="#how">How It Works</a>
-    <a href="#today">Today</a>
-    <a href="#impacts">Impacts</a>
-    <a href="#reflect">Reflection</a>
+    <span class="site-label">ICD2D · Unit 4 · 2026</span>
+    <a href="#what">Concept</a>
+    <a href="#how">Logic</a>
+    <a href="#today">Reality</a>
+    <a href="#impacts">Impact</a>
+    <a href="#reflect">Reflect</a>
   </nav>
 
-  <!-- PAGE HEADER -->
   <header>
-    <p class="label">Emerging Digital Technology</p>
-    <!-- h1 = the ONE main heading of the entire page -->
+    <span class="label">The Next Frontier</span>
     <h1>Artificial General Intelligence</h1>
-    <p class="subtitle">
-      When machines stop being tools — and start becoming minds.
-    </p>
+    <p class="subtitle">Exploring the transition from tools to autonomous digital minds.</p>
   </header>
 
-  <!-- ══════════════════════════════════════════════
-       SECTION 1 — WHAT IS AGI?
-  ══════════════════════════════════════════════ -->
-  <!-- <section> = a meaningful chunk of related content -->
   <section id="what">
-
-    <!-- h2 = a section heading, smaller/less important than h1 -->
-    <h2>What Is <abbr title="Artificial General Intelligence">AGI</abbr>?</h2>
-
-    <!-- <p> = a paragraph -->
+    <h2>🧠 What Is <abbr title="Artificial General Intelligence">AGI</abbr>?</h2>
     <p>
-      Most of the <abbr title="Artificial Intelligence">AI</abbr> we use today — image recognition,
-      spam filters, large language models — is called
-      <mark>Narrow AI</mark>: software that is superhuman at one specific task
-      but helpless at anything else. Ask a chess engine to write a poem and it fails.
-      Ask a chatbot to drive a car and it has no idea where to begin.
+      Today's technology relies on <mark>Narrow AI</mark>. Your Spotify algorithm or ChatGPT are experts in their own lanes, but they can't cross-train. <strong>AGI</strong> is the theoretical "holy grail"—a system capable of human-level reasoning across every domain.
     </p>
 
-    <p>
-      <strong>Artificial General Intelligence</strong> (<abbr title="Artificial General Intelligence">AGI</abbr>)
-      is different in kind, not just degree. An AGI system would be able to
-      <em>learn any intellectual task a human can</em> — planning, creativity,
-      emotional reasoning, scientific discovery — without being explicitly
-      programmed for each one. It would transfer knowledge between domains,
-      set its own goals, and improve through experience, just as people do.
-    </p>
-
-    <!-- <blockquote> = a formal quotation set apart from the main text -->
     <blockquote>
-      "The development of full artificial intelligence could spell the end of
-      the human race… or it could be the best thing ever to happen to us.
-      It's important to get the development right."
-      <!-- <cite> = names the source of a quotation -->
-      <cite>— Stephen Hawking, physicist (paraphrased from 2014 BBC interview)</cite>
+      "The development of full AI could spell the end of the human race... or it could be the best thing ever."
+      <cite>— Stephen Hawking</cite>
     </blockquote>
 
-    <!-- <aside> = extra, related info placed beside the main content -->
     <aside>
-      <strong>Quick Fact</strong>
-      In a 2022 survey of leading AI researchers, the median estimate for when
-      there is a 50% chance of AGI arriving was <strong>2059</strong> — though
-      estimates ranged from 2030 to "never." The debate is still very much open.
+      <strong>⚡ High-Level Insight</strong>
+      Experts are divided on the timeline. While some project AGI by <strong>2030</strong>, the median consensus remains around <strong>2059</strong>. The race isn't just about speed; it's about control.
     </aside>
 
-    <h3>AGI vs. Narrow AI — A Simple Comparison</h3>
-    <p>The table below shows the key differences at a glance.</p>
-
-    <!-- TABLE: <table>, <thead>, <tbody>, <tr>, <th>, <td> -->
+    <h3>Narrow vs. General Intelligence</h3>
     <table>
-      <!-- <thead> = the header row group -->
       <thead>
         <tr>
-          <!-- <th> = header cell -->
           <th>Feature</th>
-          <th>Narrow AI (today)</th>
-          <th>AGI (future goal)</th>
+          <th>Narrow AI (Now)</th>
+          <th>AGI (Future)</th>
         </tr>
       </thead>
-      <!-- <tbody> = the data row group -->
       <tbody>
         <tr>
-          <!-- <td> = data cell -->
-          <td>Scope</td>
-          <td>One task only</td>
-          <td>Any intellectual task</td>
+          <td>Capability</td>
+          <td>Task-Specific</td>
+          <td>Universal Reasoning</td>
         </tr>
         <tr>
-          <td>Learning</td>
-          <td>From labelled training data</td>
-          <td>From experience &amp; reasoning</td>
+          <td>Transfer Learning</td>
+          <td>None</td>
+          <td>Native</td>
         </tr>
         <tr>
-          <td>Transfer</td>
-          <td>Cannot transfer skills</td>
-          <td>Transfers knowledge freely</td>
-        </tr>
-        <tr>
-          <td>Examples</td>
-          <td>ChatGPT, AlphaGo, Siri</td>
-          <td>Theoretical; does not exist yet</td>
-        </tr>
-        <tr>
-          <td>Human-level?</td>
-          <td>Only in its narrow domain</td>
-          <td>Across all domains</td>
+          <td>Status</td>
+          <td>Deployed</td>
+          <td>Theoretical</td>
         </tr>
       </tbody>
     </table>
-
   </section>
 
   <hr />
 
-  <!-- ══════════════════════════════════════════════
-       SECTION 2 — HOW DOES IT WORK?
-  ══════════════════════════════════════════════ -->
   <section id="how">
-    <h2>How Does AGI Roughly Work?</h2>
-
-    <p>
-      AGI does not exist yet, but researchers are actively building the
-      building blocks. Three major approaches are being pursued:
-    </p>
-
-    <!-- <ol> = ordered (numbered) list -->
+    <h2>⚙️ The Logic: How It Works</h2>
+    <p>Researchers are pursuing three primary paths to achieve general reasoning:</p>
     <ol>
-      <!-- <li> = each item in the list -->
-      <li>
-        <strong>Scaling Large Language Models (LLMs)</strong> — Some researchers
-        believe that making today's neural networks much larger, and training
-        them on much more data, will eventually produce general reasoning.
-        Models like GPT-4 and Claude already show surprising emergent abilities.
-      </li>
-      <li>
-        <strong>Neurosymbolic AI</strong> — Combining the pattern-recognition of
-        neural networks with the logical rule-following of symbolic systems.
-        The goal is a system that can both <em>feel</em> what is probably true
-        and <em>prove</em> why it is true.
-      </li>
-      <li>
-        <strong>Whole-Brain Emulation</strong> — Mapping and simulating the
-        human brain at a neuronal level, then running it in software. This
-        approach is extremely far away given current hardware limits.
-      </li>
+      <li><strong>LLM Scaling:</strong> Believing brute-force data and compute will trigger emergence.</li>
+      <li><strong>Neurosymbolic AI:</strong> Merging logic-based rules with pattern recognition.</li>
+      <li><strong>Brain Emulation:</strong> Digitalizing the human neural connectome.</li>
     </ol>
 
-    <!-- <details> + <summary> = a collapsible "accordion" block -->
     <details>
-      <summary>▸ What is a neural network? (click to expand)</summary>
-      <p>
-        A neural network is a mathematical system loosely inspired by the brain.
-        It consists of layers of simple units called <strong>neurons</strong>.
-        Each neuron receives numbers as input, multiplies them by learned
-        <em>weights</em>, and passes the result forward. During training,
-        the weights adjust automatically so that the network's output matches
-        the correct answer. Stack millions of neurons across hundreds of layers,
-        train on billions of examples, and you get a modern
-        <abbr title="Large Language Model">LLM</abbr> like Claude or GPT-4.
-      </p>
+      <summary>▸ Deep Dive: Neural Networks</summary>
+      <p>Modern AI mimics the brain's architecture. Each <strong>neuron</strong> processes data through learned weights. When you stack billions of these, you get the complex reasoning found in GPT-4.</p>
     </details>
 
-    <details>
-      <summary>▸ What would make an AI "general"? (click to expand)</summary>
-      <p>
-        Most researchers agree an AGI would need to demonstrate:
-      </p>
-      <!-- <ul> = unordered (bullet) list -->
-      <ul>
-        <li><strong>Transfer learning</strong> — using knowledge from one field in another</li>
-        <li><strong>Causal reasoning</strong> — understanding <em>why</em> things happen, not just <em>that</em> they happen</li>
-        <li><strong>Common sense</strong> — knowing that ice is cold without being told</li>
-        <li><strong>Meta-cognition</strong> — knowing what it does and doesn't know</li>
-        <li><strong>Goal-directed behaviour</strong> — setting and pursuing multi-step plans autonomously</li>
-      </ul>
-    </details>
-
-    <!-- FIGURE with image and caption -->
-    <!-- <figure> wraps an image together with its caption as one logical unit -->
     <figure>
-      <!-- <img> embeds an image. src = source URL, alt = text description for accessibility -->
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/600px-Artificial_neural_network.svg.png"
-        alt="Diagram of an artificial neural network showing input, hidden, and output layers"
-        width="480"
-      />
-      <!-- <figcaption> = the visible caption beneath the figure -->
-      <figcaption>
-        A simplified diagram of an artificial neural network — the core
-        building block of modern AI. Each circle is a neuron; arrows show
-        how signals flow from input (left) to output (right).
-        <br />
-        <!-- <a href> = a clickable hyperlink -->
-        Image source:
-        <a href="https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg"
-           target="_blank">Wikimedia Commons</a>
-        (CC BY-SA 3.0)
-      </figcaption>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/600px-Artificial_neural_network.svg.png" alt="Neural Network Map" />
+      <figcaption>The foundation: An artificial neural network mapping inputs to logic outputs.</figcaption>
     </figure>
-
   </section>
 
   <hr />
 
-  <!-- ══════════════════════════════════════════════
-       SECTION 3 — WHERE IS AGI RESEARCH TODAY?
-  ══════════════════════════════════════════════ -->
   <section id="today">
-    <h2>Where Is AGI Research Today?</h2>
-
-    <p>
-      AGI itself does not exist, but the race to build it is very real.
-      Several industries and organisations are investing heavily:
-    </p>
-
-    <!-- <article> = a self-contained piece of content (like a mini-blog post) -->
+    <h2>🔬 The Reality Today</h2>
     <article>
-      <h3>🔬 Technology &amp; Research Labs</h3>
-      <p>
-        <strong>OpenAI</strong>, <strong>Anthropic</strong>,
-        <strong>Google DeepMind</strong>, and <strong>Meta AI</strong>
-        are the main private labs. OpenAI has stated that building
-        <abbr title="Artificial General Intelligence">AGI</abbr>
-        safely is its <em>explicit mission</em>. Google DeepMind's
-        CEO Demis Hassabis has said AGI could arrive "within a few years."
-        These labs employ thousands of researchers and spend billions of dollars
-        annually on compute alone.
-      </p>
+      <h3>The Titans</h3>
+      <p>Labs like <strong>OpenAI</strong> and <strong>Google DeepMind</strong> have turned AGI into a multi-billion dollar mission. It is no longer science fiction; it is a capital-heavy corporate race.</p>
     </article>
 
     <article>
-      <h3>🏥 Healthcare</h3>
-      <p>
-        Pre-AGI AI is already diagnosing cancers, predicting protein structures
-        (<a href="https://alphafold.ebi.ac.uk/" target="_blank">AlphaFold</a>),
-        and discovering new drug compounds. An AGI could run autonomous
-        clinical trials, personalise treatment in real time, and accelerate
-        drug discovery from decades to months.
-      </p>
+      <h3>Healthcare &amp; Science</h3>
+      <p>We are seeing "sparks" of AGI in tools like <a href="https://alphafold.ebi.ac.uk/" target="_blank">AlphaFold</a>, which solved protein folding—a task that would have taken humans centuries.</p>
     </article>
-
-    <article>
-      <h3>⚖️ Government &amp; Policy</h3>
-      <p>
-        Canada, the EU, the US, and the UK have all launched national
-        AI strategies. The
-        <a href="https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute"
-           target="_blank">UK AI Safety Institute</a>
-        and the US
-        <a href="https://www.nist.gov/artificial-intelligence" target="_blank">NIST AI framework</a>
-        are attempting to set safety standards before AGI arrives — a
-        challenging task when the technology is still theoretical.
-      </p>
-    </article>
-
-    <article>
-      <h3>🎓 Education</h3>
-      <p>
-        Today's AI tutors (like <em>Khan Academy's Khanmigo</em>) are Narrow AI.
-        An AGI tutor could adapt to a student's exact learning style,
-        emotional state, and knowledge gaps in real time — potentially
-        replacing one-size-fits-all curricula entirely.
-      </p>
-    </article>
-
   </section>
 
   <hr />
 
-  <!-- ══════════════════════════════════════════════
-       SECTION 4 — SOCIAL IMPACTS
-  ══════════════════════════════════════════════ -->
   <section id="impacts">
-    <h2>Social Impacts of AGI</h2>
+    <h2>📉 Global &amp; Social Impact</h2>
+    <p>AGI is a <mark>total disruptor</mark>. Unlike the industrial revolution, this automates the <em>intellect</em>, not just the muscle.</p>
 
-    <p>
-      The impacts of AGI are <mark>unlike any previous technology</mark>
-      because AGI would not just do tasks — it would <em>think</em>.
-      That changes everything.
-    </p>
+    <h3>1. The Economy</h3>
+    <p>Goldman Sachs predicts <strong>300 million jobs</strong> will be impacted. AGI tutors could democratize elite education, while AGI CEOs could redefine corporate efficiency.</p>
 
-    <h3>Economic Impacts</h3>
-    <p>
-      A 2023 Goldman Sachs report estimated that AI could automate
-      <strong>300 million full-time jobs</strong> globally within a decade.
-      <abbr title="Artificial General Intelligence">AGI</abbr> would accelerate
-      this far beyond Narrow AI. Jobs requiring creativity, judgment, and
-      emotional intelligence — once considered safe — would not be immune.
-      However, history shows that automation also creates new kinds of jobs.
-      The net effect on employment is the subject of serious, ongoing debate
-      among economists.
-    </p>
-
-    <h3>Ethical &amp; Safety Impacts</h3>
-    <p>
-      The most discussed risk is called <strong>misalignment</strong>:
-      an AGI that pursues goals that are subtly different from what humans intended.
-      AI safety researcher Stuart Russell uses this analogy: "You can't fetch
-      coffee if you're dead — but you can't fetch coffee if the humans who
-      gave you the goal are dead either." Getting the goal specification exactly
-      right is an unsolved problem.
-    </p>
-
-    <!-- <ul> bullet list of risks -->
-    <ul>
-      <li>
-        <strong>Bias at scale</strong> — If an AGI is trained on biased human
-        data, it could enforce inequalities at a speed and scale no human
-        institution could match.
-      </li>
-      <li>
-        <strong>Concentration of power</strong> — Whoever controls AGI first
-        gains an enormous geopolitical and economic advantage, raising fears
-        of a new kind of monopoly.
-      </li>
-      <li>
-        <strong>Autonomous weapons</strong> — Militaries around the world are
-        exploring AI-controlled weapons. An AGI applied to warfare creates
-        risks of conflict at machine speed, far faster than human decision-making.
-      </li>
-      <li>
-        <strong>Privacy &amp; surveillance</strong> — An AGI could process and
-        correlate all publicly available data about a person, ending practical
-        anonymity.
-      </li>
-    </ul>
-
-    <h3>Cultural &amp; Social Impacts</h3>
-    <p>
-      Humans have always defined themselves partly by cognitive uniqueness —
-      the ability to create art, solve problems, empathise. An AGI that matches
-      or exceeds all of these abilities forces a profound question:
-      <em>what makes us uniquely human?</em> Psychologists warn of
-      identity crises at a societal level. Philosophers are already debating
-      whether an AGI could deserve rights.
-    </p>
-
-    <h3>Environmental Impacts</h3>
-    <p>
-      Training large AI models today requires enormous amounts of electricity.
-      GPT-4's training is estimated to have used as much energy as
-      hundreds of US homes consume in a year. An AGI — far more complex —
-      could have a significant carbon footprint unless powered by renewable energy.
-      Water usage for data-centre cooling is also a growing concern.
-    </p>
-
-    <!-- Collapsible deeper-dive -->
-    <details>
-      <summary>▸ Local Impact: What Does This Mean for Canada?</summary>
-      <p>
-        Canada is a global leader in AI research — Geoffrey Hinton, Yoshua Bengio,
-        and Yann LeCun (the so-called "Godfathers of Deep Learning") all have
-        deep ties to Canadian universities. The
-        <a href="https://www.cifar.ca/" target="_blank">Canadian Institute for
-        Advanced Research (CIFAR)</a> funds major AI safety work.
-      </p>
-      <p>
-        Locally, AGI could reshape sectors that are central to the Canadian
-        economy: natural resources (autonomous extraction), healthcare
-        (a sector with chronic staffing shortages), and finance.
-        Canada's
-        <a href="https://ised-isde.canada.ca/site/ai-strategy/en" target="_blank">
-        Pan-Canadian AI Strategy</a>
-        is intended to keep Canada competitive while developing the technology responsibly.
-      </p>
-    </details>
+    <h3>2. The Ethics (Alignment)</h3>
+    <p>The "Alignment Problem" is the ultimate risk: ensuring a super-intelligence shares human values. If an AGI's goals are even 1% off from ours, the results could be catastrophic.</p>
 
     <details>
-      <summary>▸ Positive Possibilities — What Could AGI Solve?</summary>
-      <p>
-        It is easy to focus on risk. The potential benefits are also extraordinary:
-      </p>
-      <ul>
-        <li>Solving climate change by designing better energy systems and materials</li>
-        <li>Curing diseases that have resisted human medicine for centuries</li>
-        <li>Providing world-class education to every child on Earth, for free</li>
-        <li>Accelerating scientific discovery across every field simultaneously</li>
-      </ul>
-      <p>
-        Anthropic's CEO Dario Amodei has written that AGI could compress
-        "50–100 years of biological progress into 5–10 years." The stakes —
-        in both directions — could not be higher.
-      </p>
+      <summary>🇨🇦 The Canadian Perspective</summary>
+      <p>Canada leads the world in AI safety research through institutions like <strong>CIFAR</strong>. Our national strategy focuses on responsible innovation rather than just speed.</p>
     </details>
-
   </section>
 
   <hr />
 
-  <!-- ══════════════════════════════════════════════
-       SECTION 5 — PERSONAL REFLECTION
-  ══════════════════════════════════════════════ -->
   <section id="reflect">
-    <h2>My Reflection</h2>
-
+    <h2>✨ Personal Reflection</h2>
     <p>
-      Researching AGI made me realise that the most important questions
-      around this technology are not technical — they are human.
-      We already have the mathematics to build increasingly powerful AI.
-      What we do not yet have is agreement on what values that AI should hold,
-      who gets to decide, and how we make sure the benefits are shared fairly.
+      My research shows that the "I" in AGI is easy to define, but the "G" (General) is where the danger lies. We are building a mirror of human thought, which means we are also building a mirror of our biases.
     </p>
-
-    <p>
-      I found the alignment problem especially striking. It is not enough to
-      build a system that is intelligent — it must be intelligent
-      <em>in the right direction</em>. And defining "right" for a machine
-      that could be smarter than any human is one of the hardest problems
-      anyone has ever tried to solve.
-    </p>
-
     <blockquote>
-      The question is not whether we can build AGI.
-      The question is whether we are wise enough to decide if we should —
-      and careful enough to do it safely if we do.
-      <cite>— Personal reflection, Eliza Hayat</cite>
+      The question isn't if we can build it—it's if we are wise enough to handle it when it wakes up.
+      <cite>— Eliza Hayat</cite>
     </blockquote>
-
   </section>
 
-  <hr />
-
-  <!-- ══════════════════════════════════════════════
-       REFERENCES
-  ══════════════════════════════════════════════ -->
-  <section>
-    <h2>References</h2>
-    <!-- <ol> = ordered numbered list -->
-    <ol>
-      <li>
-        Amodei, D. (2024). <em>Machines of Loving Grace.</em>
-        <a href="https://darioamodei.com/machines-of-loving-grace" target="_blank">
-          darioamodei.com
-        </a>
-      </li>
-      <li>
-        Bostrom, N. (2014). <em>Superintelligence: Paths, Dangers, Strategies.</em>
-        Oxford University Press.
-      </li>
-      <li>
-        Goldman Sachs. (2023). <em>The Potentially Large Effects of AI on Economic Growth.</em>
-        <a href="https://www.goldmansachs.com/intelligence/pages/generative-ai-could-raise-global-gdp-by-7-percent.html"
-           target="_blank">goldmansachs.com</a>
-      </li>
-      <li>
-        Grace, K., et al. (2022). Thousands of AI Authors on the Future of AI.
-        <a href="https://arxiv.org/abs/2206.04132" target="_blank">arXiv:2206.04132</a>
-      </li>
-      <li>
-        UK AI Safety Institute. (2023). Introducing the AI Safety Institute.
-        <a href="https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute"
-           target="_blank">gov.uk</a>
-      </li>
-      <li>
-        Wikimedia Commons. Artificial neural network diagram (CC BY-SA 3.0).
-        <a href="https://commons.wikimedia.org/wiki/File:Artificial_neural_network.svg"
-           target="_blank">commons.wikimedia.org</a>
-      </li>
-    </ol>
-  </section>
-
-  <!-- ══════════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════════ -->
-  <!-- <footer> = bottom of the page: author info, date, class -->
   <footer>
-    <span>Eliza Hayat · ICD2D · Unit 4 Project · 2026</span>
+    <span>ELIZA HAYAT // ICD2D // 2026</span>
     <span>
-      Hosted on
-      <!-- <a> with target="_blank" opens link in a new tab -->
-      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://github.com" target="_blank">DEPLOYED ON GITHUB</a>
     </span>
   </footer>
 
