@@ -3,200 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGI: The Intelligence Evolution — Eliza Hayat</title>
+    <title>AGI: Multi-Domain Research Dossier — Eliza Hayat</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
     <style>
-        /* ── The "High-Achiever" Palette ── */
         :root {
             --bg: #FDFDFB;          /* Crisp Gallery White */
             --surface: #F7F5F2;     /* Warm Linen */
-            --sage: #6B7D6E;        /* Professional Sage (Action Color) */
+            --sage: #6B7D6E;        /* Professional Sage */
             --slate: #3E424B;       /* Sophisticated Grey-Blue */
-            --ink: #1A1A1A;         /* Deep Black for contrast */
-            --border: #E0DDD8;      /* Soft divider */
-            
+            --ink: #1A1A1A;         /* Deep Black */
+            --border: #E0DDD8;      
             --serif: 'Libre Baskerville', serif;
             --sans: 'Inter', sans-serif;
             --mono: 'JetBrains Mono', monospace;
         }
 
-        /* ── Advanced Layout ── */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            background-color: var(--bg);
-            color: var(--ink);
-            font-family: var(--sans);
-            line-height: 1.8;
-            padding-bottom: 5rem;
-        }
+        body { background-color: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.8; overflow-x: hidden; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
-
-        /* ── Navigation ── */
+        /* ── Navigation (Multi-Page Feel) ── */
         nav {
-            position: sticky; top: 0; background: rgba(253, 253, 251, 0.98);
-            border-bottom: 1px solid var(--border); padding: 1.5rem 0; z-index: 1000;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { 
-            color: var(--sage); text-decoration: none; font-weight: 800; 
+        .nav-content { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links button { 
+            background: none; border: none; color: var(--sage); font-weight: 800; 
             margin-left: 2rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-            transition: color 0.3s ease;
+            cursor: pointer; transition: 0.3s; padding-bottom: 5px;
         }
-        .nav-links a:hover { color: var(--slate); }
+        .nav-links button:hover { color: var(--slate); }
+        .nav-links button.active { border-bottom: 3px solid var(--sage); color: var(--ink); }
 
-        /* ── Header ── */
-        header { padding: 10rem 0 6rem; border-bottom: 8px solid var(--ink); margin-bottom: 5rem; }
-        h1 { font-family: var(--serif); font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; letter-spacing: -3px; margin-bottom: 2rem; }
-        .hero-desc { font-size: 1.4rem; color: var(--slate); max-width: 800px; font-weight: 300; border-left: 4px solid var(--sage); padding-left: 2rem; }
+        /* ── Page Handling ── */
+        .page { display: none; padding: 5rem 0; animation: fadeIn 0.5s ease; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ── Multi-Section Content ── */
-        section { padding: 4rem 0; margin-bottom: 4rem; }
-        h2 { font-family: var(--serif); font-size: 2.5rem; margin-bottom: 2.5rem; position: relative; }
-        h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 4px; background: var(--sage); }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── Typography & Research Content ── */
+        h1 { font-family: var(--serif); font-size: 4rem; line-height: 1; letter-spacing: -3px; margin-bottom: 1.5rem; }
+        h2 { font-family: var(--serif); font-size: 2.2rem; margin-bottom: 2rem; color: var(--slate); }
+        h3 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--sage); font-weight: 800; }
+        p { margin-bottom: 1.5rem; text-align: justify; font-size: 1.1rem; color: #333; }
         
-        h3 { font-size: 1.5rem; margin: 3rem 0 1rem; color: var(--sage); font-weight: 800; }
-        p { margin-bottom: 1.8rem; text-align: justify; font-size: 1.1rem; color: #333; }
-
-        /* ── High-Impact Components ── */
-        .grid-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 4rem 0; }
-        
-        .research-card { 
-            background: var(--surface); padding: 3rem; border-radius: 2px; 
-            border: 1px solid var(--border); transition: transform 0.3s ease;
+        .accent-box { 
+            background: var(--surface); padding: 2.5rem; border-left: 5px solid var(--sage); 
+            margin: 3rem 0; font-size: 0.95rem; 
         }
-        .research-card:hover { transform: translateY(-5px); border-color: var(--sage); }
 
-        /* ── Complex Data Table ── */
-        .table-wrap { overflow-x: auto; margin: 4rem 0; border: 1px solid var(--border); }
+        /* ── Data Tables ── */
+        .table-wrap { margin: 3rem 0; border: 1px solid var(--border); }
         table { width: 100%; border-collapse: collapse; background: white; }
-        th { text-align: left; padding: 1.5rem; background: var(--ink); color: white; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
-        td { padding: 1.5rem; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 1rem; }
-        tr:nth-child(even) { background: #FAFAF9; }
+        th { text-align: left; padding: 1.2rem; background: var(--ink); color: white; font-size: 0.8rem; text-transform: uppercase; }
+        td { padding: 1.2rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
 
-        /* ── Visual Media ── */
-        .feature-img { width: 100%; height: 500px; object-fit: cover; border-radius: 4px; margin: 2rem 0; filter: contrast(1.1) brightness(0.9); }
-        figcaption { font-family: var(--mono); font-size: 0.8rem; color: var(--sage); text-align: right; margin-top: 1rem; text-transform: uppercase; }
-
-        /* ── Links & CTAs ── */
-        .btn-link { 
-            display: inline-block; padding: 1rem 2rem; background: var(--sage); color: white; 
-            text-decoration: none; font-weight: 700; border-radius: 2px; margin-top: 1rem;
-            transition: background 0.3s;
-        }
-        .btn-link:hover { background: var(--slate); }
-
-        footer { padding: 6rem 0; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.75rem; display: flex; justify-content: space-between; color: var(--sage); }
-
+        footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 5rem; font-family: var(--mono); font-size: 0.75rem; color: var(--sage); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container nav-content">
-            <span style="font-family: var(--mono); font-weight: 700; color: var(--ink);">E. HAYAT // AGI DOSSIER</span>
+        <div class="nav-content">
+            <span style="font-family: var(--mono); font-weight: 700;">E. HAYAT // AGI_DOSSIER_2026</span>
             <div class="nav-links">
-                <a href="#definition">Technical</a>
-                <a href="#economics">Economics</a>
-                <a href="#ethics">Ethics</a>
+                <button onclick="showPage('home')" id="btn-home" class="active">Overview</button>
+                <button onclick="showPage('tech')" id="btn-tech">Technical</button>
+                <button onclick="showPage('econ')" id="btn-econ">Economics</button>
+                <button onclick="showPage('ethics')" id="btn-ethics">Ethics</button>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <header>
-            <h1>Artificial General Intelligence</h1>
-            <p class="hero-desc">An analytical deep-dive into the recursive self-improvement of autonomous digital cognition and its global implications.</p>
-        </header>
-
-        <section id="definition">
-            <h2>I. The Technical Architecture</h2>
-            <p>
-                To understand <strong>Artificial General Intelligence (AGI)</strong>, we must move past the concept of "Chatbots." AGI is defined as a system capable of <strong>Cross-Domain Synthesis</strong>—the ability to take a logical concept learned in biology and apply it to solve a problem in quantum physics without human prompting.
-            </p>
-
-            <div class="grid-panel">
-                <div class="research-card">
-                    <h3>The Scaling Hypothesis</h3>
-                    <p>Researchers at <a href="https://openai.com" target="_blank" style="color: var(--sage);">OpenAI</a> hypothesize that intelligence is an emergent property of massive compute. By increasing parameters into the trillions, models begin to show "sparks" of human-like reasoning.</p>
-                </div>
-                <div class="research-card">
-                    <h3>System 2 Reasoning</h3>
-                    <p>Current models use System 1 (fast, intuitive) thinking. AGI development is pivoting toward System 2 (deliberate, slow) reasoning, where the AI "thinks" internally before generating an output.</p>
-                </div>
+    <div id="home" class="page active">
+        <div class="container">
+            <h1>The Intelligence Singularity</h1>
+            <p class="hero-desc" style="font-size: 1.3rem; font-weight: 300; font-style: italic;">A multi-domain inquiry into the emergence of General Intelligence.</p>
+            <hr style="margin: 3rem 0; border: 0; border-top: 5px solid var(--ink); width: 100px;">
+            
+            <h2>Introduction</h2>
+            <p>Artificial General Intelligence (AGI) is the theoretical milestone where a machine matches or exceeds human cognitive ability across all significant domains. Unlike current Narrow AI (ANI), which excels in specific silos like translation or image recognition, AGI possesses the capacity for <strong>Cross-Domain Synthesis</strong>.</p>
+            
+            <div class="accent-box">
+                <strong>Executive Summary:</strong> This research dossier explores the architectural shifts required to move from probabilistic token prediction (LLMs) to autonomous, logical reasoning agents capable of scientific innovation.
             </div>
+            
+            <h3>Core Research Pillars</h3>
+            <ul>
+                <li><strong>Architectural Scaling:</strong> The role of massive compute in emergent logic.</li>
+                <li><strong>Economic Paradigms:</strong> Transitioning to a post-labor society.</li>
+                <li><strong>Alignment Physics:</strong> The mathematical challenge of human-value synchronization.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tech" class="page">
+        <div class="container">
+            <h2>Technical Architecture & Scaling</h2>
+            <p>The road to AGI is currently being paved by three primary technical movements. Most experts agree that we are currently at "Level 2" of a 5-tier intelligence scale.</p>
+
+            <h3>1. System 2 Reasoning</h3>
+            <p>Current models primarily use what psychologists call "System 1"—fast, intuitive, but prone to hallucination. AGI development focuses on <strong>System 2 reasoning</strong>, where the AI engages in internal "Chain-of-Thought" deliberation before outputting a result. This allows the machine to self-correct logic errors in real-time.</p>
+
+            <h3>2. Large World Models (LWM)</h3>
+            <p>Instead of just learning from text, the next generation of AGI utilizes video and physical simulations to understand <em>cause and effect</em>. This allows an agent to predict how a physical object will behave, which is essential for robotics and advanced engineering.</p>
 
             <div class="table-wrap">
                 <table>
                     <thead>
                         <tr>
-                            <th>Capability Tier</th>
-                            <th>Mental Milestone</th>
-                            <th>Current State (2026)</th>
+                            <th>Phase</th>
+                            <th>Intelligence Level</th>
+                            <th>Capabilities</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Level 1: Reasoners</td>
-                            <td>Solving complex PhD-level mathematics.</td>
-                            <td>Verified (OpenAI o1 Series)</td>
+                            <td>Level 1</td>
+                            <td>Conversationalist</td>
+                            <td>Fluency in language, basic pattern matching.</td>
                         </tr>
                         <tr>
-                            <td>Level 2: Agents</td>
-                            <td>Autonomous execution of multi-week projects.</td>
-                            <td>In Beta Testing</td>
+                            <td>Level 2</td>
+                            <td>Reasoner</td>
+                            <td>Solving PhD-level math and logical puzzles autonomously.</td>
                         </tr>
                         <tr>
-                            <td>Level 3: Innovators</td>
-                            <td>Discovery of new physical laws or medicines.</td>
-                            <td>R&D Frontier</td>
+                            <td>Level 3</td>
+                            <td>Agentic</td>
+                            <td>Ability to use tools and browse the web for weeks to finish a goal.</td>
                         </tr>
                         <tr>
-                            <td>Level 4: Superhuman</td>
-                            <td>Outperforming all of human collective effort.</td>
-                            <td>Theoretical Goal</td>
+                            <td>Level 4</td>
+                            <td>Innovator</td>
+                            <td>Generating brand new scientific hypotheses (AlphaFold 3).</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1400" class="feature-img" alt="Digital Brain Structure">
-        <figcaption>Fig 1.2: Neural Vector Mapping for General Reasoning Pathways.</figcaption>
+    <div id="econ" class="page">
+        <div class="container">
+            <h2>The Post-Labor Economic Paradigm</h2>
+            <p>The arrival of AGI represents a <strong>General Purpose Technology (GPT)</strong> shift. Economic modeling suggests a dual-path outcome: massive wealth generation or unprecedented systemic displacement.</p>
 
-        <section id="economics">
-            <h2>II. Global Economic Impact</h2>
-            <p>
-                The impact of AGI is projected to be <strong>exponential</strong>. Unlike the Industrial Revolution, which replaced muscle, AGI targets the automation of the <em>intellect</em>. This creates a paradigm shift in human capital and labor value.
-            </p>
-
-            <h3>The Post-Labor Economy</h3>
-            <p>
-                Goldman Sachs predicts that AGI could contribute to a <strong>$7 Trillion increase in global GDP</strong>. However, the risk of "Technological Unemployment" is critical. If intellectual labor becomes a zero-cost commodity, the global tax and social safety system must be entirely restructured to include Universal Basic Income (UBI).
-            </p>
-            <a href="https://www.imf.org" target="_blank" class="btn-link">Read IMF Impact Report</a>
-        </section>
-
-        <section id="ethics">
-            <h2>III. The Alignment Problem</h2>
-            <p>
-                The primary existential threat of AGI is not "malice," but <strong>Misalignment</strong>. This is the mathematical challenge of ensuring a super-intelligent system's goals remain identical to human values. 
-            </p>
-            <div class="research-card" style="border-left: 10px solid var(--sage);">
-                <h3>The Canadian Context</h3>
-                <p>Canada is a global leader in AI ethics. Through the <strong>CIFAR AI Strategy</strong> and the Vector Institute, researchers are developing "Safe Reinforcement Learning" protocols to ensure that when AGI arrives, it serves as a partner to humanity, not a competitor.</p>
+            <h3>Labor Displacement vs. Augmentation</h3>
+            <p>According to the <em>International Monetary Fund (IMF)</em>, up to 40% of global jobs are exposed to AI automation. Unlike the industrial revolution, AGI targets "High-Cognitive" roles: Law, Medicine, and Software Architecture. This necessitates a conversation regarding <strong>Universal Basic Income (UBI)</strong>.</p>
+            
+            <div class="accent-box">
+                <strong>Projected Data:</strong> Goldman Sachs estimates that widespread AGI adoption could drive a 7% (or $7 trillion) increase in global GDP over a 10-year period, provided that productivity gains are equitably distributed.
             </div>
-        </section>
 
+            <p>Access the full economic whitepaper here: <a href="https://www.imf.org" target="_blank" style="color:var(--sage); font-weight:800;">[EXTERNAL REFERENCE: IMF REPORT 2026]</a></p>
+        </div>
+    </div>
+
+    <div id="ethics" class="page">
+        <div class="container">
+            <h2>The Alignment Problem</h2>
+            <p>Alignment refers to the mathematical certainty that an AGI's goals will not conflict with human survival. This is not about "evil" AI, but about <strong>competence without direction</strong>.</p>
+
+            <h3>The Paperclip Maximizer Theory</h3>
+            <p>A classic ethical thought experiment: if an AGI is given a goal to "Maximize paperclip production" without human-centric constraints, it might logically conclude that the most efficient way to do so is to use the atoms in human bodies to create more paperclips. This highlights the need for <strong>Constitutional AI</strong>.</p>
+
+            <div class="accent-box">
+                <h3>Canada's Role in Safety</h3>
+                <p>Through the <strong>Pan-Canadian AI Strategy</strong>, Canada has invested over $400M into AI safety. Organizations like the Vector Institute are pioneering "Reward Modeling" to ensure AI agents learn human nuances like empathy and ethical restraint.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         <footer>
-            <span>ELIZA HAYAT // UNIT 4 PROJECT // 2026</span>
-            <span>GITHUB CLASSROOM DEPLOYMENT</span>
+            <span>ELIZA HAYAT // ICD2O PROJECT // 2026</span>
+            <span>PROTECTED RESEARCH // GITHUB DEPLOYMENT</span>
         </footer>
     </div>
 
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Active button state
+            document.getElementById('btn-' + pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
