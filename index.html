@@ -1,249 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AGI: Analytical Overview — Eliza Hayat</title>
-
-  <style>
-    /* ── Professional Typography ── */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap');
-
-    /* ── User-Provided Palette ── */
-    :root {
-      --clay: #c59d8a;        /* Dusty Rose/Clay */
-      --cream: #e9e7e1;       /* Light Cream */
-      --sand: #d1cbc4;        /* Warm Grey/Sand */
-      --sage: #a6aa9c;        /* Muted Sage */
-      --beige: #dcc7b7;       /* Soft Beige */
-      --text: #3d3d3d;        /* Deep Charcoal for readability */
-      --bg: #fdfdfb;          /* Off-white canvas */
-      
-      --mono: 'JetBrains Mono', monospace;
-      --sans: 'Inter', sans-serif;
-      --display: 'Playfair Display', serif;
-    }
-
-    /* ── Reset & Structure ── */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.7;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── Navigation (Minimalist) ── */
-    nav {
-      padding: 2.5rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--sand);
-      margin-bottom: 5rem;
-    }
-    nav .brand { font-family: var(--mono); font-size: 0.75rem; color: var(--clay); font-weight: 600; letter-spacing: 1px; }
-    nav .links a {
-      color: var(--sage);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-left: 2rem;
-      transition: color 0.3s;
-    }
-    nav .links a:hover { color: var(--clay); }
-
-    /* ── Header ── */
-    header { margin-bottom: 6rem; text-align: left; }
-    .label { font-family: var(--mono); font-size: 0.7rem; color: var(--sage); text-transform: uppercase; margin-bottom: 1rem; display: block; }
-    h1 {
-      font-family: var(--display);
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
-      color: var(--text);
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-    .subtitle { font-size: 1.15rem; color: var(--sage); max-content: 700px; font-weight: 400; font-style: italic; }
-
-    /* ── Content Sections ── */
-    section { padding: 5rem 0; border-bottom: 1px solid var(--cream); }
-    h2 { font-family: var(--display); font-size: 2.2rem; margin-bottom: 2rem; color: var(--clay); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerging Technology Analysis: AGI — Eliza Hayat</title>
     
-    .grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 4rem;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    /* ── Styled Components ── */
-    .card {
-      background: var(--cream);
-      padding: 2.5rem;
-      border-radius: 4px;
-      border-left: 3px solid var(--clay);
-    }
+    <style>
+        /* ── Earth-Toned Academic Palette ── */
+        :root {
+            --paper: #FDFCFB;      /* Clean White */
+            --cream: #F5F2ED;      /* Soft Cream */
+            --brown: #5C4D42;      /* Deep Brown for headings */
+            --accent: #A68A78;     /* Muted Tan for borders */
+            --text: #2D2926;       /* Soft Black for readability */
+            --serif: 'Libre Baskerville', serif;
+            --sans: 'Inter', sans-serif;
+        }
 
-    table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 0.8rem; margin: 2.5rem 0; }
-    th { text-align: left; padding: 1.2rem; color: var(--clay); border-bottom: 1px solid var(--sand); background: var(--bg); }
-    td { padding: 1.2rem; border-bottom: 1px solid var(--cream); color: var(--text); }
+        /* ── Layout & Structure ── */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--paper);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
 
-    blockquote {
-      font-family: var(--display);
-      font-size: 1.6rem;
-      color: var(--clay);
-      margin: 5rem 0;
-      padding: 2rem;
-      background-color: var(--cream);
-      border-radius: 8px;
-    }
+        nav {
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 1rem;
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    details { border: 1px solid var(--sand); padding: 1.5rem; border-radius: 4px; margin: 2rem 0; }
-    summary { cursor: pointer; font-weight: 600; color: var(--clay); }
+        nav a {
+            text-decoration: none;
+            color: var(--brown);
+            margin-left: 20px;
+        }
 
-    .image-container {
-      width: 100%;
-      height: 400px;
-      background: var(--sand);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 3rem 0;
-    }
-    
-    .image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-      mix-blend-mode: multiply; /* Helps image blend with your palette */
-    }
+        header {
+            margin-bottom: 6rem;
+            text-align: left;
+        }
 
-    footer {
-      padding: 5rem 0;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--sage);
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid var(--cream);
-    }
+        h1 {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            color: var(--brown);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
 
-    /* ── High-Achiever Refinement ── */
-    .highlight { color: var(--clay); font-weight: 600; }
-    .data-label { font-family: var(--mono); font-size: 0.65rem; color: var(--sage); margin-bottom: 0.5rem; display: block; }
-  </style>
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* ── Content Sections ── */
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            color: var(--brown);
+            border-bottom: 2px solid var(--cream);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* ── Advanced Level 4 Tags ── */
+        article {
+            background-color: var(--cream);
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        blockquote {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            margin: 3rem 0;
+            padding-left: 2rem;
+            color: var(--brown);
+            border-left: 1px solid var(--accent);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--cream);
+            text-align: left;
+            padding: 12px;
+            color: var(--brown);
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        /* ── Visual Elements ── */
+        figure {
+            margin: 4rem 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            filter: sepia(20%); /* Matches the brown aesthetic */
+        }
+
+        figcaption {
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        footer {
+            margin-top: 10rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--cream);
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            color: var(--accent);
+        }
+
+        a {
+            color: var(--brown);
+            font-weight: 600;
+        }
+    </style>
 </head>
-
 <body>
 
-  <nav>
-    <span class="brand">RESEARCH PORTFOLIO // E. HAYAT</span>
-    <div class="links">
-      <a href="#definition">Definition</a>
-      <a href="#logic">Logic</a>
-      <a href="#impact">Impact</a>
-    </div>
-  </nav>
+    <nav>
+        <span>OCDSB // ICD2O Research</span>
+        <div>
+            <a href="#definition">Definition</a>
+            <a href="#logic">Logic</a>
+            <a href="#impact">Impact</a>
+        </div>
+    </nav>
 
-  <header>
-    <span class="label">Emerging Digital Technology Project</span>
-    <h1>Artificial General Intelligence</h1>
-    <p class="subtitle">A theoretical analysis of autonomous cognitive systems and cross-domain reasoning.</p>
-  </header>
+    <header>
+        <h1>Artificial General Intelligence</h1>
+        <p class="subtitle">The transition from specialized tools to autonomous cognitive systems.</p>
+    </header>
 
-  <section id="definition">
-    <div class="grid">
-      <div>
-        <h2>Conceptual Definition</h2>
+    <section id="definition">
+        <h2>What is AGI?</h2>
         <p>
-          Artificial General Intelligence (AGI) represents a pivot from narrow, task-specific algorithms to <span class="highlight">Universal Competence</span>. Unlike current models, AGI possesses the ability to transfer knowledge across disparate fields—applying mathematical logic to creative arts or scientific discovery without intervention.
+            Unlike contemporary Narrow AI, which is designed for specific tasks like medical diagnostics or linguistic prediction, <strong>Artificial General Intelligence (AGI)</strong> represents a system that possesses human-level reasoning across all intellectual domains. It is the ability to apply logic from one field to an entirely different one without human intervention.
         </p>
-      </div>
-      
-      <div class="card">
-        <span class="data-label">// KEY METRICS</span>
-        <p style="font-size: 0.85rem; line-height: 2.2;">
-          Timeline: 2029 — 2045<br>
-          Core Mechanism: Generalization<br>
-          Current State: Proto-AGI<br>
-          Risk Factor: High Alignment Required
+
+        <blockquote>
+            "The development of full AI could spell the end of the human race... or it could be the best thing ever."
+            <br>— Stephen Hawking
+        </blockquote>
+    </section>
+
+    <section id="logic">
+        <h2>Mechanism: How AGI Roughly Works</h2>
+        <p>Researchers are currently pursuing three primary technical paths to achieve general reasoning:</p>
+        
+        <article>
+            <h3>1. Neural Scaling</h3>
+            <p>The hypothesis that increasing computational power and dataset size will lead to "emergent" reasoning capabilities that the system was not explicitly programmed for.</p>
+            
+            <h3>2. Neurosymbolic Integration</h3>
+            <p>Combining the pattern recognition of deep learning with the strict logical rules of symbolic AI to create a machine that has both intuition and reason.</p>
+        </article>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Narrow AI (Today)</th>
+                    <th>AGI (Emerging)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Transfer Learning</td>
+                    <td>Minimal/None</td>
+                    <td>Native Capability</td>
+                </tr>
+                <tr>
+                    <td>Reasoning Scope</td>
+                    <td>Task-Specific</td>
+                    <td>Universal Reasoning</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>Deployed</td>
+                    <td>Theoretical / R&D</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200" alt="Abstract visualization of neural networks">
+            <figcaption>Figure 1: Mathematical mapping of neural connections as a foundation for AGI development.</figcaption>
+        </figure>
+    </section>
+
+    <section id="impact">
+        <h2>Social and Ethical Impacts</h2>
+        <p>AGI is a total disruptor. Unlike the Industrial Revolution, which automated physical labor, AGI threatens to automate human intellect itself.</p>
+
+        <h3>Economic and Career Shifts</h3>
+        <p>Global financial institutions like Goldman Sachs estimate that AGI could impact up to <strong>300 million jobs</strong>. While industries like research and software engineering will see massive efficiency gains, the economic gap may widen significantly between those who own the technology and those who do not.</p>
+
+        <h3>The Alignment Problem</h3>
+        <p>The primary ethical challenge is ensuring a super-intelligent system shares human values. If an AGI's goals are even 1% misaligned with ours, its autonomous decision-making could have catastrophic global consequences. This has led to the emergence of "AI Safety" as a critical new career field.</p>
+    </section>
+
+    <section id="reflection">
+        <h2>Personal Reflection</h2>
+        <p>
+            My research indicates that the challenge of AGI is not just a coding problem, but a philosophical one. We are essentially building a mirror of human thought. The question remains: Are we wise enough to manage a machine that may eventually think faster and more logically than we do?
         </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="logic">
-    <h2>Logical Framework</h2>
-    <p>The development of AGI is predicated on the <span class="highlight">Scaling Hypothesis</span>, which suggests that intelligence is an emergent property of sufficient computational power and data diversity.</p>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Cognitive Tier</th>
-          <th>Capabilities</th>
-          <th>Current Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Narrow AI</td>
-          <td>Pattern Recognition</td>
-          <td>Production</td>
-        </tr>
-        <tr>
-          <td>Reasoning Models</td>
-          <td>Step-by-Step Logic</td>
-          <td>Beta Testing</td>
-        </tr>
-        <tr>
-          <td>General Agency</td>
-          <td>Autonomous Goal Setting</td>
-          <td>Theoretical</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <details>
-      <summary>Technical Appendix: Neural Plasticity</summary>
-      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text);">
-        Artificial neural networks mimic biological structures, allowing for "weights" between connections to be adjusted through backpropagation, creating a system that learns from experience rather than code.
-      </p>
-    </details>
-  </section>
-
-  <div class="image-container">
-    <img src="https://images.unsplash.com/photo-1620712943543-bcc4628c9759?auto=format&fit=crop&q=80&w=1200" alt="Artificial Intelligence Visualization">
-  </div>
-
-  <section id="impact">
-    <h2>Societal Implications</h2>
-    <p>The transition to AGI involves a fundamental restructuring of global labor. As cognitive tasks become automated, the value of <span class="highlight">Human-Centric Ethics</span> becomes the primary concern for world leaders.</p>
-    
-    <div class="grid" style="margin-top: 2rem;">
-      <div style="padding-right: 2rem;">
-        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Economic Shifts</h3>
-        <p style="font-size: 0.9rem;">The total automation of intellectual labor leads to the necessity of new fiscal models, such as Universal Basic Income, to sustain post-labor societies.</p>
-      </div>
-      <div style="padding-left: 2rem; border-left: 1px solid var(--cream);">
-        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">The Alignment Problem</h3>
-        <p style="font-size: 0.9rem;">The ethical risk of AGI involves ensuring that the machine's terminal goals are mathematically verified to align with human survival and flourishing.</p>
-      </div>
-    </div>
-  </section>
-
-  <blockquote>
-    "The first superintelligent machine is the last invention that man need ever make."
-    <cite style="display: block; font-size: 0.8rem; font-family: var(--mono); margin-top: 1.5rem; font-style: normal; color: var(--sage);">— I.J. GOOD, 1965</cite>
-  </blockquote>
-
-  <footer>
-    <span>ELIZA HAYAT // ICD2D // 2026</span>
-    <span>GITHUB DEPLOYMENT // UNIT 4 PROJECT</span>
-  </footer>
+    <footer>
+        <span>ELIZA HAYAT // ICD2O // 2026</span>
+        <span><a href="https://github.com/ocdsb" target="_blank">DEPLOYED VIA GITHUB</a></span>
+    </footer>
 
 </body>
 </html>
