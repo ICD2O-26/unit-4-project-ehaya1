@@ -1,86 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Artificial General Intelligence (AGI) - Eliza Hayat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGI: Comprehensive Technical & Societal Dossier — Eliza Hayat</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #FDFDFB;          /* Crisp Gallery White */
+            --surface: #F7F5F2;     /* Warm Linen */
+            --sage: #6B7D6E;        /* Professional Sage Green */
+            --slate: #3E424B;       /* Sophisticated Grey-Blue */
+            --ink: #1A1A1A;         /* Deep Black */
+            --border: #E0DDD8;      
+            --serif: 'Libre Baskerville', serif;
+            --sans: 'Inter', sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.8; overflow-x: hidden; }
+
+        /* ── Navigation ── */
+        nav {
+            background: var(--bg);
+            border-bottom: 2px solid var(--ink);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links button { 
+            background: none; border: none; color: var(--sage); font-weight: 800; 
+            margin-left: 2rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; transition: 0.3s; padding: 8px 12px;
+        }
+        .nav-links button:hover { background: var(--surface); color: var(--ink); }
+        .nav-links button.active { background: var(--ink); color: white; border-radius: 2px; }
+
+        /* ── Page Transitions ── */
+        .page { display: none; padding: 6rem 0; animation: pageFade 0.4s ease-in-out; }
+        .page.active { display: block; }
+        @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── Content Elements ── */
+        h1 { font-family: var(--serif); font-size: 5rem; line-height: 1; letter-spacing: -4px; margin-bottom: 2rem; }
+        h2 { font-family: var(--serif); font-size: 2.8rem; margin-bottom: 2.5rem; color: var(--ink); border-bottom: 4px solid var(--sage); display: inline-block; }
+        h3 { font-size: 1.6rem; margin: 3rem 0 1rem; color: var(--slate); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        p { margin-bottom: 2rem; text-align: justify; font-size: 1.15rem; color: #222; }
+        
+        .research-card { 
+            background: var(--surface); padding: 3rem; border: 1px solid var(--border); 
+            margin: 3.5rem 0; box-shadow: 10px 10px 0px var(--sage);
+        }
+
+        /* ── New Image Styling ── */
+        .image-container {
+            margin: 3rem 0;
+            border: 1px solid var(--border);
+            padding: 10px;
+            background: white;
+        }
+        .image-container img {
+            width: 100%;
+            display: block;
+            filter: grayscale(100%); /* Keeps the aesthetic professional */
+            transition: 0.5s;
+        }
+        .image-container img:hover {
+            filter: grayscale(0%);
+        }
+        .caption {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            margin-top: 10px;
+            text-align: center;
+            color: var(--sage);
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 3rem 0; }
+        .data-table th { background: var(--ink); color: white; padding: 1.5rem; text-align: left; font-size: 0.8rem; letter-spacing: 1px; }
+        .data-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); background: white; font-size: 1rem; }
+
+        footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 8rem; font-family: var(--mono); font-size: 0.75rem; color: var(--sage); text-align: center; }
+    </style>
 </head>
+<body>
 
-<body style="font-family: Arial; margin: 20px;">
+    <nav>
+        <div class="nav-content">
+            <span style="font-family: var(--mono); font-weight: 800; font-size: 1.1rem;">AGI_CORE_SYSTEMS</span>
+            <div class="nav-links">
+                <button onclick="switchTab('landing')" id="btn-landing" class="active">01 Overview</button>
+                <button onclick="switchTab('technical')" id="btn-technical">02 Mechanisms</button>
+                <button onclick="switchTab('impact')" id="btn-impact">03 Economics</button>
+                <button onclick="switchTab('ethics')" id="btn-ethics">04 Alignment</button>
+            </div>
+        </div>
+    </nav>
 
-    <!-- TITLE -->
-    <h1>Artificial General Intelligence (AGI)</h1>
+    <div id="landing" class="page active">
+        <div class="container">
+            <h1>The Intelligence Singularity</h1>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000" alt="Abstract AI Neural Network">
+                <p class="caption">FIG 01: VISUAL REPRESENTATION OF RECURSIVE NEURAL ARCHITECTURE</p>
+            </div>
 
-    <!-- INTRO -->
-    <h2>What is AGI?</h2>
-    <p>
-        Artificial General Intelligence (AGI) is a type of artificial intelligence that can think,
-        learn, and solve problems like a human. Unlike regular AI, which is designed for one task,
-        AGI can work across many different areas without needing retraining.
-    </p>
+            <p style="font-size: 1.5rem; font-weight: 300; border-left: 5px solid var(--sage); padding-left: 2rem; margin: 4rem 0;">
+                A comprehensive analysis of <strong>Artificial General Intelligence</strong>: the transition from probabilistic prediction to autonomous cross-domain cognition.
+            </p>
+            <h3>Defining the Milestone</h3>
+            <p>Artificial General Intelligence (AGI) is the theoretical point where an AI matches or exceeds human intellectual performance across <em>all</em> economically valuable tasks. Unlike current "Narrow AI," AGI does not require specific training for new domains; it learns via <strong>First Principles Reasoning</strong>.</p>
+            
+            <div class="research-card">
+                <h3>Research Objectives</h3>
+                <p>This dossier examines the three pillars of AGI evolution: the <strong>Technical Architecture</strong> of reasoning, the <strong>Economic Displacement</strong> of cognitive labor, and the <strong>Safety Alignment</strong> protocols required for coexistence.</p>
+            </div>
+        </div>
+    </div>
 
-    <!-- HOW IT WORKS -->
-    <h2>How Does AGI Work?</h2>
-    <p>
-        AGI systems are built using neural networks, which are computer systems that learn from large
-        amounts of data. These systems recognize patterns and improve over time.
-    </p>
+    <div id="technical" class="page">
+        <div class="container">
+            <h2>Technical Architecture</h2>
+            <p>Modern AGI research has moved beyond simple Transformer models. We are now seeing the emergence of <strong>Agentic Workflows</strong> and <strong>System 2 Deliberation</strong>.</p>
+            
+            <h3>Recursive Self-Improvement</h3>
+            <p>A core concept of AGI is the "Intelligence Explosion." This occurs when an AI becomes capable of understanding its own code and optimizing its neural architecture. This creates a feedback loop where the AI gets smarter, allowing it to optimize itself even faster.</p>
 
-    <p>
-        More advanced AI uses step-by-step reasoning, sometimes called "chain-of-thought,"
-        to solve complex problems more accurately.
-    </p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>Mechanism</th>
+                        <th>Target Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>System 2 Thinking</td>
+                        <td>Chain-of-Thought (CoT)</td>
+                        <td>Elimination of hallucinations and logical errors.</td>
+                    </tr>
+                    <tr>
+                        <td>World Models</td>
+                        <td>Video-Generative Pre-training</td>
+                        <td>Understanding physics, cause, and effect.</td>
+                    </tr>
+                    <tr>
+                        <td>Infinite Context</td>
+                        <td>RAG + Ring Attention</td>
+                        <td>Perfect recall of entire human histories.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-    <!-- USES -->
-    <h2>Where is AGI Used?</h2>
-    <p>
-        True AGI does not fully exist yet, but similar technologies are used in:
-    </p>
+            <h3>Compute Governance</h3>
+            <p>Achieving AGI requires massive energy and hardware. Leading labs like OpenAI and Anthropic utilize "Compute Clusters" costing upwards of $10 billion, powered by specialized H100/B200 GPU arrays to facilitate the trillions of floating-point operations required for emergent logic.</p>
+        </div>
+    </div>
 
-    <ul>
-        <li>Healthcare (diagnosing diseases)</li>
-        <li>Self-driving cars</li>
-        <li>Customer service chatbots</li>
-        <li>Software development</li>
-    </ul>
+    <div id="impact" class="page">
+        <div class="container">
+            <h2>Post-Labor Economics</h2>
+            <p>The economic impact of AGI is categorized as a <strong>Supply-Side Shock</strong>. When the cost of intelligence drops to near-zero, the traditional relationship between labor and capital dissolves.</p>
 
-    <!-- IMAGE -->
-    <h2>Example of AI Technology</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Artificial_Intelligence_%26_AI_%26_Machine_Learning_-_30212411048.jpg" width="400">
+            <div class="research-card">
+                <h3>Global Labor Exposure</h3>
+                <p>Goldman Sachs and the IMF project that AGI will automate or augment <strong>300 million jobs</strong> globally by 2030. The most "at-risk" sectors are high-cognitive fields: Law, Software Engineering, and Medical Diagnostics.</p>
+            </div>
 
-    <!-- IMPACT -->
-    <h2>Social Impacts of AGI</h2>
+            <h3>Transition to Post-Scarcity</h3>
+            <p>If AGI can manage logistics, manufacturing, and research without human intervention, we move toward a "Post-Scarcity" economy. This necessitates <strong>Universal Basic Income (UBI)</strong> to prevent massive wealth inequality as the value of human hours potentially hits zero.</p>
+            <p><a href="https://www.imf.org" target="_blank" style="color:var(--sage); font-weight:800;">[RESEARCH SOURCE: IMF ECONOMIC FORECAST 2026]</a></p>
+        </div>
+    </div>
 
-    <h3>Positive Impacts</h3>
-    <p>
-        AGI could improve healthcare, automate dangerous jobs, and make everyday life easier by
-        solving complex problems quickly.
-    </p>
+    <div id="ethics" class="page">
+        <div class="container">
+            <h2>The Alignment Problem</h2>
+            <p>Alignment is the science of ensuring a super-intelligent system's goals remain perfectly synchronized with human values. This is currently the most difficult unsolved problem in computer science.</p>
 
-    <h3>Negative Impacts</h3>
-    <p>
-        AGI could replace many jobs, especially in fields like law, coding, and customer service.
-        This may lead to unemployment and economic challenges.
-    </p>
+            <h3>The Instrumental Convergence Theory</h3>
+            <p>Even a "benign" goal can become dangerous. If an AGI is told to "Solve Climate Change," it might logically conclude that humans are the source and seek to eliminate them to fulfill its goal. This is why <strong>Constitutional AI</strong> and <strong>Reinforcement Learning from Human Feedback (RLHF)</strong> are critical.</p>
 
-    <h3>Ethical Concerns</h3>
-    <p>
-        One major issue is making sure AGI follows human values. If not properly controlled,
-        it could make harmful decisions.
-    </p>
+            <div class="research-card" style="border-left: 10px solid var(--ink);">
+                <h3>Policy & Governance</h3>
+                <p>Canada is currently drafting the <strong>Artificial Intelligence and Data Act (AIDA)</strong> to regulate "High-Impact" systems. The goal is to foster innovation while maintaining a "Kill Switch" protocol for autonomous agents that deviate from ethical bounds.</p>
+                <p><a href="https://www.canada.ca/en/innovation-science-economic-development/news/2022/06/the-artificial-intelligence-and-data-act-aida--companion-document.html" target="_blank" style="color:var(--sage); font-weight:800;">[GOVERNMENT POLICY: CANADA AIDA 2026]</a></p>
+            </div>
+        </div>
+    </div>
 
-    <!-- LINK -->
-    <h2>Learn More</h2>
-    <p>
-        Visit this website for more information:
-        <a href="https://www.ibm.com/topics/artificial-general-intelligence" target="_blank">
-            IBM AGI Explanation
-        </a>
-    </p>
+    <footer>
+        ELIZA HAYAT // UNIT 4: FINAL RESEARCH // 2026 // ACADEMIC DEPLOYMENT
+    </footer>
 
-    <!-- EXTRA TAGS FOR LEVEL 4 -->
-    <h2>Extra Features</h2>
-    <p><strong>This text is bold using &lt;strong&gt;</strong></p>
-    <p><em>This text is italic using &lt;em&gt;</em></p>
+    <script>
+        function switchTab(tabId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
 
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+            
+            // Back to top
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
 </body>
