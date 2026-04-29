@@ -3,330 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AGI: The Future of Mind — Eliza Hayat</title>
+  <title>AGI: The Final Frontier — Eliza Hayat</title>
 
   <style>
     /* ── Google Fonts ── */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
-    /* ── Baddie Professional CSS Variables ── */
+    /* ── Advanced Design System ── */
     :root {
-      --ink:       #ffffff;      /* Clean White */
-      --paper:     #0a0a0a;      /* Deep Obsidian */
-      --accent:    #ff3cac;      /* Power Pink */
-      --accent2:   #00f2fe;      /* Electric Cyan */
-      --muted:     #888888;      /* Sleek Grey */
-      --border:    #222222;      /* Subtle Divider */
-      --highlight: rgba(255, 60, 172, 0.25);
-      --glass:     rgba(255, 255, 255, 0.03);
-      --mono:      'JetBrains Mono', monospace;
-      --sans:      'Plus Jakarta Sans', sans-serif;
-      --display:   'Playfair Display', serif;
+      --bg: #050505;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --accent-pink: #ff2d95;
+      --accent-cyan: #00f2fe;
+      --text-main: #e0e0e0;
+      --text-dim: #94a3b8;
+      --border-glow: rgba(255, 255, 255, 0.1);
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
-    /* ── Reset & Base ── */
+    /* ── Smooth Scroll & Base ── */
+    html { scroll-behavior: smooth; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 1.1rem;
-      line-height: 1.7;
-      max-width: 900px;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.8;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 6rem;
-      /* Subtle grid texture for that tech vibe */
-      background-image: radial-gradient(circle at 1px 1px, #1a1a1a 1px, transparent 0);
-      background-size: 40px 40px;
+      padding: 2rem 1.5rem;
+      /* Subtle dark mesh gradient background */
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(255, 45, 149, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.05) 0px, transparent 50%);
     }
 
-    /* ── Navigation ── */
+    /* ── Navigation (Glassmorphic) ── */
     nav {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1rem;
-      margin-bottom: 4rem;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    nav .site-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      flex: 1;
-    }
-    nav a {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--ink);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--accent2); }
-
-    /* ── Header ── */
-    header {
-      margin-bottom: 4rem;
-      text-align: center;
-    }
-    header .label {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--accent2);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    h1 {
-      font-family: var(--display);
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(to right, var(--ink), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.5rem;
-    }
-    header p.subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
-
-    /* ── Sections ── */
-    h2 {
-      font-family: var(--display);
-      font-size: 2rem;
-      color: var(--accent2);
-      margin: 4rem 0 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    h3 {
-      font-size: 1.3rem;
-      margin: 2rem 0 1rem;
-      color: var(--accent);
-    }
-    p { margin-bottom: 1.5rem; color: #d1d1d1; }
-
-    /* ── The Baddie "Glass" Article ── */
-    article {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-      backdrop-filter: blur(5px);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    article:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-    }
-
-    /* ── Aside Info ── */
-    aside {
-      float: right;
-      width: 280px;
-      margin: 0 0 2rem 2rem;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #1a1a1a, #000);
-      border-left: 3px solid var(--accent);
-      font-size: 0.9rem;
-      border-radius: 0 8px 8px 0;
-    }
-    @media (max-width: 700px) { aside { float: none; width: 100%; margin: 2rem 0; } }
-
-    /* ── Visuals ── */
-    figure { margin: 3rem 0; text-align: center; }
-    figure img {
-      max-width: 100%;
-      border-radius: 12px;
-      filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.2));
-    }
-    figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 1rem; }
-
-    /* ── Elements ── */
-    blockquote {
-      font-family: var(--display);
-      font-size: 1.4rem;
-      border-left: 4px solid var(--accent);
-      padding: 1rem 2rem;
-      margin: 3rem 0;
-      background: var(--glass);
-    }
-    cite { display: block; font-size: 0.8rem; font-family: var(--mono); color: var(--accent2); margin-top: 1rem; }
-    mark { background: var(--highlight); color: var(--ink); padding: 0 0.3em; }
-    abbr { text-decoration: underline dotted var(--accent2); cursor: help; }
-    
-    table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: var(--mono); font-size: 0.85rem; }
-    th { text-align: left; padding: 1rem; border-bottom: 2px solid var(--accent); color: var(--accent2); }
-    td { padding: 1rem; border-bottom: 1px solid var(--border); }
-    tr:hover td { background: var(--glass); }
-
-    details { background: var(--glass); border: 1px solid var(--border); padding: 1rem; border-radius: 8px; margin: 1rem 0; }
-    summary { font-weight: 600; cursor: pointer; color: var(--accent2); }
-
-    a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    a:hover { text-decoration: underline; }
-
-    hr { border: 0; border-top: 1px solid var(--border); margin: 4rem 0; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-glow);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5rem;
     }
+    nav .label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-pink); letter-spacing: 2px; }
+    nav div { display: flex; gap: 1.5rem; }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
+    nav a:hover { color: var(--accent-cyan); }
+
+    /* ── Hero Section ── */
+    header { text-align: center; margin-bottom: 8rem; }
+    .badge {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0, 242, 254, 0.2);
+    }
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 2rem;
+      background: linear-gradient(to bottom, #fff 30%, var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Level 4 Layout Components ── */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 850px) { .content-grid { grid-template-columns: 1fr; } }
+
+    article {
+      background: var(--card-bg);
+      border: 1px solid var(--border-glow);
+      padding: 2.5rem;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    article:hover {
+      border-color: var(--accent-pink);
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    /* ── Advanced Table Styling ── */
+    .table-container { overflow-x: auto; margin: 2rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { text-align: left; padding: 1.2rem; color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); }
+    td { padding: 1.2rem; border-bottom: 1px solid var(--border-glow); color: var(--text-dim); }
+    tr:hover td { color: #fff; background: rgba(255,255,255,0.02); }
+
+    /* ── Interactive Elements ── */
+    details {
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-glow);
+      border-radius: 12px;
+      padding: 1rem;
+      background: rgba(255,255,255,0.02);
+    }
+    summary { cursor: pointer; color: var(--accent-cyan); font-weight: 700; list-style: none; }
+    summary::before { content: "⚡ "; }
+
+    blockquote {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-style: italic;
+      margin: 4rem 0;
+      padding: 0 2rem;
+      border-left: 4px solid var(--accent-pink);
+      line-height: 1.4;
+    }
+
+    /* ── Visual Assets ── */
+    .feature-img {
+      width: 100%;
+      border-radius: 20px;
+      margin: 2rem 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border: 1px solid var(--border-glow);
+    }
+
+    .status-pill {
+      background: var(--accent-pink);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    footer {
+      margin-top: 10rem;
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-glow);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    /* ── Utility ── */
+    mark { background: rgba(0, 242, 254, 0.2); color: var(--accent-cyan); padding: 0 4px; }
+    .gradient-text { background: linear-gradient(45deg, var(--accent-pink), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
   </style>
 </head>
 
 <body>
 
   <nav>
-    <span class="site-label">ICD2D · Unit 4 · 2026</span>
-    <a href="#what">Concept</a>
-    <a href="#how">Logic</a>
-    <a href="#today">Reality</a>
-    <a href="#impacts">Impact</a>
-    <a href="#reflect">Reflect</a>
+    <span class="label">Project Index // 2026</span>
+    <div>
+      <a href="#what">Concept</a>
+      <a href="#how">Logic</a>
+      <a href="#impact">Impact</a>
+    </div>
   </nav>
 
   <header>
-    <span class="label">The Next Frontier</span>
+    <span class="badge">Emerging Technology Analysis</span>
     <h1>Artificial General Intelligence</h1>
-    <p class="subtitle">Exploring the transition from tools to autonomous digital minds.</p>
+    <p style="color: var(--text-dim); max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+      Analyzing the shift from task-specific software to autonomous, cross-domain intellectual systems.
+    </p>
   </header>
 
   <section id="what">
-    <h2>🧠 What Is <abbr title="Artificial General Intelligence">AGI</abbr>?</h2>
-    <p>
-      Today's technology relies on <mark>Narrow AI</mark>. Your Spotify algorithm or ChatGPT are experts in their own lanes, but they can't cross-train. <strong>AGI</strong> is the theoretical "holy grail"—a system capable of human-level reasoning across every domain.
-    </p>
-
-    <blockquote>
-      "The development of full AI could spell the end of the human race... or it could be the best thing ever."
-      <cite>— Stephen Hawking</cite>
-    </blockquote>
-
-    <aside>
-      <strong>⚡ High-Level Insight</strong>
-      Experts are divided on the timeline. While some project AGI by <strong>2030</strong>, the median consensus remains around <strong>2059</strong>. The race isn't just about speed; it's about control.
-    </aside>
-
-    <h3>Narrow vs. General Intelligence</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Narrow AI (Now)</th>
-          <th>AGI (Future)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Capability</td>
-          <td>Task-Specific</td>
-          <td>Universal Reasoning</td>
-        </tr>
-        <tr>
-          <td>Transfer Learning</td>
-          <td>None</td>
-          <td>Native</td>
-        </tr>
-        <tr>
-          <td>Status</td>
-          <td>Deployed</td>
-          <td>Theoretical</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="content-grid">
+      <div>
+        <h2>The Concept</h2>
+        <p>
+          Current AI models are <mark>Narrow</mark>. They excel in isolated environments like chess or medical imaging but fail outside them. <strong>AGI</strong> is the bridge to human-level flexibility—the ability to apply intelligence to <em>any</em> problem without specialized training.
+        </p>
+        <blockquote>
+          "The question isn't if machines will think, but how we will coexist when they do."
+        </blockquote>
+      </div>
+      
+      <aside style="background: var(--card-bg); border: 1px solid var(--border-glow); border-radius: 20px; padding: 1.5rem;">
+        <h4 style="color: var(--accent-pink); font-family: var(--font-mono); margin-bottom: 1rem;">// KEY DATA</h4>
+        <p style="font-size: 0.85rem; color: var(--text-dim);">
+          <strong>Est. Arrival:</strong> 2029 – 2050<br><br>
+          <strong>Primary Goal:</strong> Recursive Self-Improvement<br><br>
+          <strong>Risk Level:</strong> <span class="status-pill">Critical</span>
+        </p>
+      </aside>
+    </div>
   </section>
-
-  <hr />
 
   <section id="how">
-    <h2>⚙️ The Logic: How It Works</h2>
-    <p>Researchers are pursuing three primary paths to achieve general reasoning:</p>
-    <ol>
-      <li><strong>LLM Scaling:</strong> Believing brute-force data and compute will trigger emergence.</li>
-      <li><strong>Neurosymbolic AI:</strong> Merging logic-based rules with pattern recognition.</li>
-      <li><strong>Brain Emulation:</strong> Digitalizing the human neural connectome.</li>
-    </ol>
-
-    <details>
-      <summary>▸ Deep Dive: Neural Networks</summary>
-      <p>Modern AI mimics the brain's architecture. Each <strong>neuron</strong> processes data through learned weights. When you stack billions of these, you get the complex reasoning found in GPT-4.</p>
-    </details>
-
-    <figure>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/600px-Artificial_neural_network.svg.png" alt="Neural Network Map" />
-      <figcaption>The foundation: An artificial neural network mapping inputs to logic outputs.</figcaption>
-    </figure>
-  </section>
-
-  <hr />
-
-  <section id="today">
-    <h2>🔬 The Reality Today</h2>
     <article>
-      <h3>The Titans</h3>
-      <p>Labs like <strong>OpenAI</strong> and <strong>Google DeepMind</strong> have turned AGI into a multi-billion dollar mission. It is no longer science fiction; it is a capital-heavy corporate race.</p>
-    </article>
+      <h2>Mechanism & Logic</h2>
+      <p>Researchers are currently scaling <span class="gradient-text">Neural Networks</span> to massive proportions. By mimicking the brain's synaptic weight adjustments, these models "emerge" with reasoning capabilities.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Architecture</th>
+              <th>Logic Model</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Transformers</td>
+              <td>Pattern Prediction</td>
+              <td>Deployed (GPT-4)</td>
+            </tr>
+            <tr>
+              <td>Neurosymbolic</td>
+              <td>Rules + Intuition</td>
+              <td>In-Testing</td>
+            </tr>
+            <tr>
+              <td>World Models</td>
+              <td>Physics Simulation</td>
+              <td>R&D Phase</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <article>
-      <h3>Healthcare &amp; Science</h3>
-      <p>We are seeing "sparks" of AGI in tools like <a href="https://alphafold.ebi.ac.uk/" target="_blank">AlphaFold</a>, which solved protein folding—a task that would have taken humans centuries.</p>
+      <details>
+        <summary>View Technical Breakdown: Neural Nodes</summary>
+        <p style="padding-top: 1rem; font-size: 0.9rem;">
+          Neural networks use layers of mathematical 'nodes' that process input data. As the system 'learns,' it adjusts the mathematical weight of these nodes until the output matches the desired goal.
+        </p>
+      </details>
     </article>
   </section>
 
-  <hr />
-
-  <section id="impacts">
-    <h2>📉 Global &amp; Social Impact</h2>
-    <p>AGI is a <mark>total disruptor</mark>. Unlike the industrial revolution, this automates the <em>intellect</em>, not just the muscle.</p>
-
-    <h3>1. The Economy</h3>
-    <p>Goldman Sachs predicts <strong>300 million jobs</strong> will be impacted. AGI tutors could democratize elite education, while AGI CEOs could redefine corporate efficiency.</p>
-
-    <h3>2. The Ethics (Alignment)</h3>
-    <p>The "Alignment Problem" is the ultimate risk: ensuring a super-intelligence shares human values. If an AGI's goals are even 1% off from ours, the results could be catastrophic.</p>
-
-    <details>
-      <summary>🇨🇦 The Canadian Perspective</summary>
-      <p>Canada leads the world in AI safety research through institutions like <strong>CIFAR</strong>. Our national strategy focuses on responsible innovation rather than just speed.</p>
-    </details>
+  <section id="visual">
+    <img src="https://images.unsplash.com/photo-1620712943543-bcc4628c9759?q=80&w=1200&auto=format&fit=crop" class="feature-img" alt="AGI Visual Representation">
+    <p style="text-align: center; font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">FIG 1.0: Visualizing the interconnectivity of general reasoning nodes.</p>
   </section>
 
-  <hr />
+  <section id="impact">
+    <h2>The Impact Matrix</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+      <div style="padding: 1.5rem; border: 1px solid var(--border-glow); border-radius: 15px;">
+        <h3 style="color: var(--accent-cyan);">Economic</h3>
+        <p style="font-size: 0.9rem;">Total automation of cognitive labor. Shift towards a universal basic income model as productivity hits infinite scale.</p>
+      </div>
+      <div style="padding: 1.5rem; border: 1px solid var(--border-glow); border-radius: 15px;">
+        <h3 style="color: var(--accent-pink);">Ethical</h3>
+        <p style="font-size: 0.9rem;">The <a href="https://www.alignmentforum.org/" target="_blank" style="color: var(--accent-cyan);">Alignment Problem</a>: ensuring an AI's goals don't accidentally harm humanity.</p>
+      </div>
+    </div>
+  </section>
 
-  <section id="reflect">
-    <h2>✨ Personal Reflection</h2>
-    <p>
-      My research shows that the "I" in AGI is easy to define, but the "G" (General) is where the danger lies. We are building a mirror of human thought, which means we are also building a mirror of our biases.
+  <section id="reflect" style="margin-top: 5rem;">
+    <h2 style="text-align: center;">Personal Reflection</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto; font-style: italic;">
+      AGI is more than just a faster computer; it's a mirror of our own intelligence. My research suggests that our success depends not on how smart the machine is, but on how clear our own human values are before we encode them into silicon.
     </p>
-    <blockquote>
-      The question isn't if we can build it—it's if we are wise enough to handle it when it wakes up.
-      <cite>— Eliza Hayat</cite>
-    </blockquote>
   </section>
 
   <footer>
-    <span>ELIZA HAYAT // ICD2D // 2026</span>
-    <span>
-      <a href="https://github.com" target="_blank">DEPLOYED ON GITHUB</a>
-    </span>
+    <span>ELIZA HAYAT // ICD2D UNIT 4</span>
+    <span>HOSTED VIA GITHUB PAGES</span>
+    <span>&copy; 2026 // ALL RIGHTS RESERVED</span>
   </footer>
 
 </body>
