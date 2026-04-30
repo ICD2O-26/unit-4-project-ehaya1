@@ -55,21 +55,17 @@
             margin: 3.5rem 0; box-shadow: 10px 10px 0px var(--sage);
         }
 
-        /* 100% Requirement: Image Styling */
         .image-box {
             border: 2px solid var(--ink);
-            padding: 10px;
             margin: 2rem 0;
-            background: white;
+            background: #eee;
+            overflow: hidden;
             text-align: center;
         }
         .image-box img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            transition: 0.3s;
-        }
-        .image-box img:hover {
-            filter: sepia(50%); /* Subtle effect to show understanding of CSS filters */
+            display: block;
         }
 
         .data-table { width: 100%; border-collapse: collapse; margin: 3rem 0; }
@@ -83,7 +79,7 @@
 
     <nav>
         <div class="nav-content">
-            <span style="font-family: var(--mono); font-weight: 800; font-size: 1.1rem;">AGI_CORE_V1.2</span>
+            <span style="font-family: var(--mono); font-weight: 800; font-size: 1.1rem;">AGI_CORE_V1.3</span>
             <div class="nav-links">
                 <button onclick="switchTab('landing')" id="btn-landing" class="active">01 Intelligence</button>
                 <button onclick="switchTab('technical')" id="btn-technical">02 Architecture</button>
@@ -98,21 +94,23 @@
             <h1>The Intelligence Singularity</h1>
             
             <div class="image-box">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/1200px-Artificial_neural_network.svg.png" alt="Neural Network Diagram">
-                <p style="font-family: var(--mono); font-size: 0.7rem; color: var(--sage); margin-top: 10px;">[ FIG A: VISUALIZING NEURAL CONNECTIVITY ]</p>
+                <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Artificial Intelligence Visualization">
             </div>
+            <p style="font-family: var(--mono); font-size: 0.7rem; color: var(--sage); margin-top: -1.5rem; text-align: center; margin-bottom: 3rem;">
+                [ FIG A: NEURAL ARCHITECTURE REPRESENTATION ]
+            </p>
 
             <p style="font-size: 1.5rem; font-weight: 300; border-left: 5px solid var(--sage); padding-left: 2rem; margin: 4rem 0;">
                 A comprehensive dossier on <strong>Artificial General Intelligence</strong>: the transition from predictive modeling to recursive cognition.
             </p>
 
             <div class="image-box">
-                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">EXPERT AGI TIMELINE PREDICTIONS</p>
-                <img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['2030','2040','2050'],datasets:[{label:'Probability',data:[25,60,85],backgroundColor:'%236B7D6E'}]}}" alt="AGI Timeline Graph">
+                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-top: 10px;">AGI ARRIVAL PROBABILITY CHART</p>
+                <img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['2026','2030','2040'],datasets:[{label:'Probability',data:[12,45,78],backgroundColor:'%236B7D6E'}]}}" alt="AGI Timeline Graph">
             </div>
 
             <h3>Defining General Intelligence</h3>
-            <p>Unlike current AI, AGI represents a system capable of <strong>transfer learning</strong>—the ability to apply knowledge from one domain to another autonomously.</p>
+            <p>Artificial General Intelligence (AGI) solves the problem of "brittle AI" by applying logic across multiple domains simultaneously without human prompts.</p>
         </div>
     </div>
 
@@ -131,19 +129,19 @@
                     <tr>
                         <td>System 2 Thinking</td>
                         <td>Chain-of-Thought (CoT)</td>
-                        <td>Forces the model to reason step-by-step.</td>
+                        <td>Enables step-by-step reasoning logic.</td>
                     </tr>
                     <tr>
                         <td>Recursion</td>
                         <td>Self-Optimization</td>
-                        <td>AI improves its own code autonomously.</td>
+                        <td>Allows the AI to rewrite its own code.</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="research-card">
                 <h3>HTML Insights</h3>
-                <p>I combined static images with <strong>Dynamic APIs</strong> to ensure the data is current. I also used <code>transition</code> properties on the images to create interactive hover effects for the user.</p>
+                <p>The layout uses a <strong>Single Page Application</strong> structure. I used JavaScript to handle tab visibility and CSS Variables for global theme management.</p>
             </div>
         </div>
     </div>
@@ -152,9 +150,9 @@
         <div class="container">
             <h2>Labor & Economics</h2>
             <div class="research-card">
-                <h3>The 2026 Shift</h3>
-                <p>Current data suggests a <strong>35% shift</strong> in global workforce requirements by 2030 due to AGI augmentation.</p>
-                <p><a href="https://www.goldmansachs.com" target="_blank" style="color:var(--sage); font-weight:800;">[RESEARCH SOURCE: GS LABOR]</a></p>
+                <h3>Macro-Economic Reality</h3>
+                <p>AGI is projected to impact various sectors by automating cognitive labor, moving the global economy toward a "post-labor" framework.</p>
+                <p><a href="https://www.imf.org" target="_blank" style="color:var(--sage); font-weight:800;">[RESEARCH SOURCE: IMF]</a></p>
             </div>
         </div>
     </div>
@@ -163,9 +161,9 @@
         <div class="container">
             <h2>Policy & Alignment</h2>
             <div class="research-card" style="border-left: 10px solid var(--ink);">
-                <h3>Canada's AIDA Act</h3>
-                <p>Canada’s <strong>Artificial Intelligence and Data Act</strong> mandates strict oversight for 'High-Impact' systems.</p>
-                <p><a href="https://www.canada.ca/en.html" target="_blank" style="color:var(--sage); font-weight:800;">[CANADA AIDA POLICY]</a></p>
+                <h3>Canada's Digital Leadership</h3>
+                <p>The <strong>Artificial Intelligence and Data Act (AIDA)</strong> represents Canada's commitment to safety standards for high-impact systems.</p>
+                <p><a href="https://www.canada.ca/en.html" target="_blank" style="color:var(--sage); font-weight:800;">[GOV POLICY: CANADA AIDA]</a></p>
             </div>
         </div>
     </div>
