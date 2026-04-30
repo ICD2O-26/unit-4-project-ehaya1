@@ -5,88 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGI Core Systems: Technical & Societal Dossier — Eliza Hayat</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
+        /* ── Design System (CSS Variables) ── */
         :root {
-            --bg: #FDFDFB;          
-            --surface: #F7F5F2;     
-            --sage: #6B7D6E;        
-            --ink: #1A1A1A;         
-            --border: #E0DDD8;      
-            --slate: #4A4A4A;
+            --bg: #FDFDFB;         /* Creamy paper white */
+            --surface: #F7F5F2;    /* Subtle beige for cards */
+            --sage: #566959;       /* Deep moss green for accents */
+            --ink: #121212;        /* High-contrast black */
+            --border: #D8D4CF;     /* Sophisticated muted border */
+            --slate: #4A4A4A;      
+            --accent: #E86F51;     /* Terracotta highlight for important data */
             --serif: 'Libre Baskerville', serif;
             --sans: 'Inter', sans-serif;
             --mono: 'JetBrains Mono', monospace;
         }
 
+        /* ── Reset & Global ── */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.8; overflow-x: hidden; }
+        body { background-color: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.7; }
 
+        /* ── Navigation: Glassmorphism Effect ── */
         nav {
-            background: var(--bg);
-            border-bottom: 2px solid var(--ink);
-            padding: 1.5rem 0;
+            background: rgba(253, 253, 251, 0.8);
+            backdrop-filter: blur(10px); /* Blurs content behind the bar */
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .nav-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-content { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: var(--mono); font-weight: 800; font-size: 0.9rem; color: var(--sage); }
+
         .nav-links button { 
-            background: none; border: none; color: var(--sage); font-weight: 800; 
-            margin-left: 2rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-            cursor: pointer; transition: 0.3s; padding: 8px 12px;
+            background: none; border: none; color: var(--slate); font-weight: 700; 
+            margin-left: 1.5rem; font-size: 0.7rem; text-transform: uppercase; 
+            letter-spacing: 1.5px; cursor: pointer; transition: 0.3s ease;
+            padding: 6px 12px; border-radius: 4px;
         }
-        .nav-links button:hover { background: var(--surface); color: var(--ink); }
-        .nav-links button.active { background: var(--ink); color: white; border-radius: 2px; }
+        .nav-links button:hover { color: var(--ink); background: var(--surface); }
+        .nav-links button.active { color: white; background: var(--ink); }
 
-        .page { display: none; padding: 6rem 0; animation: pageFade 0.4s ease-in-out; }
+        /* ── Transitions ── */
+        .page { display: none; padding: 4rem 0 8rem; animation: slideIn 0.5s ease forwards; }
         .page.active { display: block; }
-        @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 850px; margin: 0 auto; padding: 0 2rem; }
 
-        h1 { font-family: var(--serif); font-size: 5rem; line-height: 1; letter-spacing: -4px; margin-bottom: 2rem; }
-        h2 { font-family: var(--serif); font-size: 2.8rem; margin-bottom: 2.5rem; color: var(--ink); border-bottom: 4px solid var(--sage); display: inline-block; }
-        h3 { font-size: 1.6rem; margin: 3rem 0 1rem; color: var(--slate); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        p { margin-bottom: 2rem; text-align: justify; font-size: 1.15rem; color: #222; }
-        
+        /* ── Typography ── */
+        h1 { font-family: var(--serif); font-size: 4rem; line-height: 1; margin-bottom: 2rem; letter-spacing: -2px; }
+        h2 { font-family: var(--serif); font-size: 2.2rem; margin-bottom: 2.5rem; border-bottom: 3px solid var(--sage); display: inline-block; padding-bottom: 5px; }
+        h3 { font-size: 0.8rem; margin: 3rem 0 1rem; color: var(--sage); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #2D2D2D; text-align: justify; }
+
+        /* ── Aesthetic Elements ── */
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+        .stat-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; text-align: center; border-radius: 8px; }
+        .stat-number { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: var(--accent); display: block; }
+        .stat-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--sage); letter-spacing: 1px; }
+
         .research-card { 
-            background: var(--surface); padding: 2.5rem; border: 1px solid var(--border); 
-            margin: 3.5rem 0; box-shadow: 10px 10px 0px var(--sage);
+            background: white; padding: 2.5rem; border: 1px solid var(--border); 
+            margin: 3.5rem 0; border-radius: 12px; box-shadow: 12px 12px 0px var(--surface);
         }
 
-        .data-table { width: 100%; border-collapse: collapse; margin: 3rem 0; }
-        .data-table th { background: var(--ink); color: white; padding: 1.5rem; text-align: left; font-size: 0.8rem; }
-        .data-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); background: white; }
+        .figure-box { border: 1px solid var(--border); padding: 1.5rem; background: #fff; margin: 3rem 0; border-radius: 8px; }
+        .figure-box img { width: 100%; height: auto; border-radius: 4px; }
+        .caption { font-family: var(--mono); font-size: 0.65rem; color: var(--slate); margin-top: 1rem; text-align: center; text-transform: uppercase; }
 
-        .chart-box {
-            border: 2px solid var(--ink);
-            padding: 15px;
-            margin: 3rem 0;
-            background: white;
-            text-align: center;
-        }
-        .chart-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 2px;
-            display: block;
-            margin: 0 auto;
-        }
+        .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem; }
+        .data-table th { background: var(--ink); color: white; padding: 1rem; text-align: left; font-family: var(--mono); font-size: 0.7rem; }
+        .data-table td { padding: 1.2rem 1rem; border-bottom: 1px solid var(--border); background: #fff; }
 
-        footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 8rem; font-family: var(--mono); font-size: 0.75rem; color: var(--sage); text-align: center; }
+        footer { border-top: 1px solid var(--border); padding: 4rem 0; color: var(--sage); text-align: center; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="nav-content">
-            <span style="font-family: var(--mono); font-weight: 800; font-size: 1.1rem;">AGI_CORE_V1.0</span>
+            <span class="nav-logo">SYSTEM_IDENT: AGI_V1.3</span>
             <div class="nav-links">
                 <button onclick="switchTab('landing')" id="btn-landing" class="active">01 Intelligence</button>
                 <button onclick="switchTab('technical')" id="btn-technical">02 Architecture</button>
-                <button onclick="switchTab('impact')" id="btn-impact">03 Labor/Economics</button>
+                <button onclick="switchTab('impact')" id="btn-impact">03 Labor</button>
                 <button onclick="switchTab('ethics')" id="btn-ethics">04 Policy</button>
             </div>
         </div>
@@ -94,24 +99,33 @@
 
     <div id="landing" class="page active">
         <div class="container">
-            <h1>The Intelligence Singularity</h1>
+            <h1>The Intelligence<br>Singularity</h1>
             
-            <p style="font-size: 1.5rem; font-weight: 300; border-left: 5px solid var(--sage); padding-left: 2rem; margin: 4rem 0;">
-                A comprehensive dossier on <strong>Artificial General Intelligence</strong>: the transition from predictive modeling to recursive, human-equivalent cognition.
+            <p style="font-size: 1.4rem; font-weight: 300; border-left: 4px solid var(--sage); padding-left: 2rem; margin: 3rem 0; font-family: var(--serif); font-style: italic;">
+                A comprehensive dossier on Artificial General Intelligence: the transition from predictive modeling to recursive, human-equivalent cognition.
             </p>
 
-            <div class="chart-box">
-                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">FIG. 1: EXPERT PREDICTIONS ON AGI TIMELINES</p>
-                <img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['2026','2030','2035','2040','2045'],datasets:[{label:'AGI Probability %',data:[10,35,55,75,90],backgroundColor:'rgba(107, 125, 110, 0.8)'}]}}" alt="AGI Probability Graph">
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-number">2031</span>
+                    <span class="stat-label">Expert Projection (Median)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">300M</span>
+                    <span class="stat-label">Jobs Impacted Globally</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$15.7T</span>
+                    <span class="stat-label">Potential GDP Growth</span>
+                </div>
             </div>
 
             <h3>Defining General Intelligence</h3>
-            <p>Artificial General Intelligence (AGI) is the "Singularity" of computer science. While today's AI is <strong>Narrow</strong> (meaning it can only do one task, like playing chess or generating text), AGI solves the problem of <strong>cross-domain reasoning</strong>. It functions by mimicking the human brain's ability to apply knowledge from one area (like math) to a completely different area (like art), creating a system that can learn anything without human intervention.</p>
-            
-            <div class="chart-box">
-                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">FIG. 2: NEURAL NETWORK VISUALIZATION</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg" alt="Diagram of a Neural Network Structure" width="600">
-                <p style="font-family: var(--mono); font-size: 0.65rem; color: var(--sage); margin-top: 10px;">SOURCE: WIKIMEDIA COMMONS // OPEN-SOURCE EDUCATIONAL DIAGRAM</p>
+            <p>Artificial General Intelligence (AGI) differs from the "Narrow AI" we use today (like Siri or ChatGPT). While current systems are excellent at specific tasks, AGI possesses <strong>cross-domain logic</strong>. It can learn to solve a physics equation, write a symphony, and diagnose a disease using the same underlying reasoning framework—mimicking the versatility of the human brain.</p>
+
+            <div class="figure-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg" alt="Neural Network Diagram">
+                <p class="caption">[ FIG A: MULTILAYER PERCEPTRON & NEURAL TOPOLOGY ]</p>
             </div>
         </div>
     </div>
@@ -119,71 +133,80 @@
     <div id="technical" class="page">
         <div class="container">
             <h2>Technical Architecture</h2>
-            <p>To reach AGI, researchers are moving away from simple pattern matching. Instead, they utilize <strong>Neuro-Symbolic hybrids</strong> that combine neural network "learning" with symbolic "logic." This roughly works by creating a multi-layered system that checks its own work for hallucinations before outputting a result.</p>
+            <p>Modern AGI research is moving away from just "guessing the next word" and toward <strong>System 2 Thinking</strong>—logic that allows an AI to verify its own answers before speaking.</p>
             
             <table class="data-table">
                 <thead>
                     <tr>
                         <th>Pillar</th>
                         <th>Mechanism</th>
-                        <th>Function</th>
+                        <th>Biological Equivalent</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>System 2 Thinking</td>
+                        <td><strong>Reasoning</strong></td>
                         <td>Chain-of-Thought (CoT)</td>
-                        <td>Forces the model to reason step-by-step to minimize logical errors.</td>
+                        <td>Inner Monologue / Logic</td>
                     </tr>
                     <tr>
-                        <td>Recursion</td>
+                        <td><strong>Recursion</strong></td>
                         <td>Self-Optimization</td>
-                        <td>AI analyzes its own neural weights to improve performance autonomously.</td>
+                        <td>Neuroplasticity</td>
                     </tr>
                     <tr>
-                        <td>Transfer Learning</td>
-                        <td>Domain Adaptation</td>
-                        <td>The ability to take a skill learned in coding and apply it to biology.</td>
+                        <td><strong>Memory</strong></td>
+                        <td>Persistent RAG</td>
+                        <td>Long-term Memory</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="research-card">
-                <h3>Current Applications</h3>
-                <p>Today, AGI foundations are used in <strong>Pharmaceutical Research</strong> to simulate protein folding and in <strong>Autonomous Robotics</strong> where machines must navigate unpredictable environments like construction sites or hospitals.</p>
+                <h3>HTML Code Architecture</h3>
+                <p>This site is built as a <strong>Single Page Application (SPA)</strong>. Instead of loading four different files, I use a JavaScript function to toggle the CSS <code>display</code> property between <code>none</code> and <code>block</code>. I also used <strong>CSS Variables</strong> (found in the <code>:root</code> selector) to manage the color palette globally.</p>
             </div>
         </div>
     </div>
 
     <div id="impact" class="page">
         <div class="container">
-            <h2>Labor Displacement & Economics</h2>
+            <h2>Labor & Economics</h2>
             <div class="research-card">
-                <h3>The 2026 Labor Shift</h3>
-                <p>The social impact of AGI is a double-edged sword. Economically, it creates <strong>Cognitive Abundance</strong>, where the cost of intelligence becomes nearly free, potentially solving global crises like disease and energy. However, it also creates a <strong>Labor Crisis</strong>. Unlike the industrial revolution which replaced muscles, AGI replaces "minds." Experts suggest this will require a total restructure of our tax systems, moving toward a "Robot Tax" to fund social safety nets as traditional 9-5 jobs disappear.</p>
-                <p><a href="https://www.goldmansachs.com" target="_blank" style="color:var(--sage); font-weight:800;">[READ: LABOR IMPACT REPORT]</a></p>
+                <p>The International Monetary Fund (IMF) projects that AGI will impact 40% of global employment. Unlike previous industrial revolutions that replaced physical labor, AGI targets <strong>cognitive labor</strong>, shifting us toward a "post-labor" framework.</p>
+                <a href="https://www.imf.org" target="_blank" style="color:var(--accent); font-weight:800; text-decoration: none;">[ ACCESS IMF RESEARCH DATABASE ]</a>
+            </div>
+            
+            <div class="figure-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Function_machine2.svg" alt="Automation Logic" style="max-width: 300px; margin: 0 auto; display: block;">
+                <p class="caption">[ FIG B: CONCEPTUAL MODEL OF AUTOMATION INPUT/OUTPUT ]</p>
             </div>
         </div>
     </div>
 
     <div id="ethics" class="page">
         <div class="container">
-            <h2>Global Policy & Alignment</h2>
+            <h2>Policy & Alignment</h2>
             <div class="research-card" style="border-left: 10px solid var(--ink);">
-                <h3>The Alignment Problem</h3>
-                <p>A major ethical concern is <strong>Alignment</strong>: ensuring an AGI's goals match human values. If an AGI is given a goal without ethical constraints, it may take "efficient" but harmful shortcuts to achieve it. This is why policy is catching up to code.</p>
-                <h3>Canada's AIDA Act</h3>
-                <p>To ensure AGI safety, Canada’s <strong>Artificial Intelligence and Data Act</strong> mandates strict oversight for 'High-Impact' systems to prevent biased or harmful autonomous decision-making.</p>
-                <p><a href="https://www.canada.ca/en.html" target="_blank" style="color:var(--sage); font-weight:800;">[GOV POLICY: CANADA AIDA]</a></p>
+                <h3>The Canadian Framework</h3>
+                <p>Canada is a global leader in AI ethics. The <strong>Artificial Intelligence and Data Act (AIDA)</strong> ensures that high-impact systems are developed with transparency and human oversight at the core.</p>
+                <a href="https://www.canada.ca/en.html" target="_blank" style="color:var(--sage); font-weight:800; text-decoration: none;">[ GOV POLICY: CANADA AIDA REFERENCE ]</a>
             </div>
         </div>
     </div>
 
     <footer>
-        ELIZA HAYAT // UNIT 4 PROJECT // 2026 // JMSS-ICD2O
+        ELIZA HAYAT // UNIT 4 PROJECT // ICD2O // 2026
     </footer>
 
     <script>
+        /**
+         * switchTab()
+         * This function handles the "Single Page" logic.
+         * 1. Hides all elements with the class 'page'.
+         * 2. Removes the 'active' styling from all buttons.
+         * 3. Shows the specific page ID that was clicked.
+         */
         function switchTab(tabId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
@@ -193,7 +216,9 @@
 
             document.getElementById(tabId).classList.add('active');
             document.getElementById('btn-' + tabId).classList.add('active');
-            window.scrollTo(0, 0);
+            
+            // Smoothly scroll back to top when switching pages
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
