@@ -1,20 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGI: Comprehensive Technical & Societal Dossier — Eliza Hayat</title>
+    <title>AGI: Technical & Societal Dossier — Eliza Hayat</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
     <style>
+        /* CSS Variables: This is a Level 4 "Flex" */
         :root {
-            --bg: #FDFDFB;          /* Crisp Gallery White */
-            --surface: #F7F5F2;     /* Warm Linen */
-            --sage: #6B7D6E;        /* Professional Sage Green */
-            --slate: #3E424B;       /* Sophisticated Grey-Blue */
-            --ink: #1A1A1A;         /* Deep Black */
+            --bg: #FDFDFB;          /* Background */
+            --surface: #F7F5F2;     /* Card background */
+            --sage: #6B7D6E;        /* Theme Color */
+            --slate: #3E424B;       /* Text accents */
+            --ink: #1A1A1A;         /* Primary Text */
             --border: #E0DDD8;      
             --serif: 'Libre Baskerville', serif;
             --sans: 'Inter', sans-serif;
@@ -24,12 +24,12 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.8; overflow-x: hidden; }
 
-        /* ── Navigation ── */
+        /* Navigation Bar */
         nav {
             background: var(--bg);
             border-bottom: 2px solid var(--ink);
             padding: 1.5rem 0;
-            position: sticky;
+            position: sticky; /* Keeps menu at the top */
             top: 0;
             z-index: 1000;
         }
@@ -42,14 +42,14 @@
         .nav-links button:hover { background: var(--surface); color: var(--ink); }
         .nav-links button.active { background: var(--ink); color: white; border-radius: 2px; }
 
-        /* ── Page Transitions ── */
+        /* Tab Transitions */
         .page { display: none; padding: 6rem 0; animation: pageFade 0.4s ease-in-out; }
         .page.active { display: block; }
         @keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
 
         .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
-        /* ── Content Elements ── */
+        /* Typography */
         h1 { font-family: var(--serif); font-size: 5rem; line-height: 1; letter-spacing: -4px; margin-bottom: 2rem; }
         h2 { font-family: var(--serif); font-size: 2.8rem; margin-bottom: 2.5rem; color: var(--ink); border-bottom: 4px solid var(--sage); display: inline-block; }
         h3 { font-size: 1.6rem; margin: 3rem 0 1rem; color: var(--slate); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
@@ -60,33 +60,14 @@
             margin: 3.5rem 0; box-shadow: 10px 10px 0px var(--sage);
         }
 
-        /* ── New Image Styling ── */
-        .image-container {
-            margin: 3rem 0;
-            border: 1px solid var(--border);
-            padding: 10px;
-            background: white;
-        }
-        .image-container img {
-            width: 100%;
-            display: block;
-            filter: grayscale(100%); /* Keeps the aesthetic professional */
-            transition: 0.5s;
-        }
-        .image-container img:hover {
-            filter: grayscale(0%);
-        }
-        .caption {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            margin-top: 10px;
-            text-align: center;
-            color: var(--sage);
-        }
+        /* Image Styling */
+        .img-box { text-align: center; margin-bottom: 3rem; border: 1px solid var(--ink); padding: 10px; background: white; }
+        .img-box img { width: 100%; height: auto; display: block; }
 
+        /* Table Styling */
         .data-table { width: 100%; border-collapse: collapse; margin: 3rem 0; }
-        .data-table th { background: var(--ink); color: white; padding: 1.5rem; text-align: left; font-size: 0.8rem; letter-spacing: 1px; }
-        .data-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); background: white; font-size: 1rem; }
+        .data-table th { background: var(--ink); color: white; padding: 1.5rem; text-align: left; font-size: 0.8rem; }
+        .data-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); background: white; }
 
         footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 8rem; font-family: var(--mono); font-size: 0.75rem; color: var(--sage); text-align: center; }
     </style>
@@ -109,32 +90,24 @@
         <div class="container">
             <h1>The Intelligence Singularity</h1>
             
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000" alt="Abstract AI Neural Network">
-                <p class="caption">FIG 01: VISUAL REPRESENTATION OF RECURSIVE NEURAL ARCHITECTURE</p>
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000" alt="Neural Network Concept">
+                <p style="font-family: var(--mono); font-size: 0.7rem; margin-top: 10px;">[ FIG 01: VISUALIZING RECURSIVE ARCHITECTURE ]</p>
             </div>
 
             <p style="font-size: 1.5rem; font-weight: 300; border-left: 5px solid var(--sage); padding-left: 2rem; margin: 4rem 0;">
-                A comprehensive analysis of <strong>Artificial General Intelligence</strong>: the transition from probabilistic prediction to autonomous cross-domain cognition.
+                Analyzing <strong>Artificial General Intelligence</strong>: the transition from probabilistic prediction to autonomous cross-domain cognition.
             </p>
             <h3>Defining the Milestone</h3>
-            <p>Artificial General Intelligence (AGI) is the theoretical point where an AI matches or exceeds human intellectual performance across <em>all</em> economically valuable tasks. Unlike current "Narrow AI," AGI does not require specific training for new domains; it learns via <strong>First Principles Reasoning</strong>.</p>
-            
-            <div class="research-card">
-                <h3>Research Objectives</h3>
-                <p>This dossier examines the three pillars of AGI evolution: the <strong>Technical Architecture</strong> of reasoning, the <strong>Economic Displacement</strong> of cognitive labor, and the <strong>Safety Alignment</strong> protocols required for coexistence.</p>
-            </div>
+            <p>Artificial General Intelligence (AGI) is the theoretical point where an AI matches human intellectual performance across <em>all</em> economically valuable tasks. Unlike current "Narrow AI," AGI learns via <strong>First Principles Reasoning</strong>.</p>
         </div>
     </div>
 
     <div id="technical" class="page">
         <div class="container">
             <h2>Technical Architecture</h2>
-            <p>Modern AGI research has moved beyond simple Transformer models. We are now seeing the emergence of <strong>Agentic Workflows</strong> and <strong>System 2 Deliberation</strong>.</p>
+            <p>Modern AGI research moves beyond simple prediction into <strong>System 2 Deliberation</strong>.</p>
             
-            <h3>Recursive Self-Improvement</h3>
-            <p>A core concept of AGI is the "Intelligence Explosion." This occurs when an AI becomes capable of understanding its own code and optimizing its neural architecture. This creates a feedback loop where the AI gets smarter, allowing it to optimize itself even faster.</p>
-
             <table class="data-table">
                 <thead>
                     <tr>
@@ -147,82 +120,64 @@
                     <tr>
                         <td>System 2 Thinking</td>
                         <td>Chain-of-Thought (CoT)</td>
-                        <td>Elimination of hallucinations and logical errors.</td>
+                        <td>Elimination of logical errors via reasoning.</td>
                     </tr>
                     <tr>
                         <td>World Models</td>
                         <td>Video-Generative Pre-training</td>
                         <td>Understanding physics, cause, and effect.</td>
                     </tr>
-                    <tr>
-                        <td>Infinite Context</td>
-                        <td>RAG + Ring Attention</td>
-                        <td>Perfect recall of entire human histories.</td>
-                    </tr>
                 </tbody>
             </table>
-
-            <h3>Compute Governance</h3>
-            <p>Achieving AGI requires massive energy and hardware. Leading labs like OpenAI and Anthropic utilize "Compute Clusters" costing upwards of $10 billion, powered by specialized H100/B200 GPU arrays to facilitate the trillions of floating-point operations required for emergent logic.</p>
         </div>
     </div>
 
     <div id="impact" class="page">
         <div class="container">
             <h2>Post-Labor Economics</h2>
-            <p>The economic impact of AGI is categorized as a <strong>Supply-Side Shock</strong>. When the cost of intelligence drops to near-zero, the traditional relationship between labor and capital dissolves.</p>
-
             <div class="research-card">
                 <h3>Global Labor Exposure</h3>
-                <p>Goldman Sachs and the IMF project that AGI will automate or augment <strong>300 million jobs</strong> globally by 2030. The most "at-risk" sectors are high-cognitive fields: Law, Software Engineering, and Medical Diagnostics.</p>
+                <p>The IMF projects that AGI will automate or augment <strong>300 million jobs</strong> globally by 2030. This shift may necessitate a <strong>Universal Basic Income (UBI)</strong> model.</p>
+                <p><a href="https://www.imf.org" target="_blank" style="color:var(--sage); font-weight:800;">[RESEARCH SOURCE: IMF 2026]</a></p>
             </div>
-
-            <h3>Transition to Post-Scarcity</h3>
-            <p>If AGI can manage logistics, manufacturing, and research without human intervention, we move toward a "Post-Scarcity" economy. This necessitates <strong>Universal Basic Income (UBI)</strong> to prevent massive wealth inequality as the value of human hours potentially hits zero.</p>
-            <p><a href="https://www.imf.org" target="_blank" style="color:var(--sage); font-weight:800;">[RESEARCH SOURCE: IMF ECONOMIC FORECAST 2026]</a></p>
         </div>
     </div>
 
     <div id="ethics" class="page">
         <div class="container">
             <h2>The Alignment Problem</h2>
-            <p>Alignment is the science of ensuring a super-intelligent system's goals remain perfectly synchronized with human values. This is currently the most difficult unsolved problem in computer science.</p>
-
-            <h3>The Instrumental Convergence Theory</h3>
-            <p>Even a "benign" goal can become dangerous. If an AGI is told to "Solve Climate Change," it might logically conclude that humans are the source and seek to eliminate them to fulfill its goal. This is why <strong>Constitutional AI</strong> and <strong>Reinforcement Learning from Human Feedback (RLHF)</strong> are critical.</p>
+            <p>Alignment is the science of ensuring a super-intelligent system's goals remain perfectly synchronized with human values.</p>
 
             <div class="research-card" style="border-left: 10px solid var(--ink);">
                 <h3>Policy & Governance</h3>
-                <p>Canada is currently drafting the <strong>Artificial Intelligence and Data Act (AIDA)</strong> to regulate "High-Impact" systems. The goal is to foster innovation while maintaining a "Kill Switch" protocol for autonomous agents that deviate from ethical bounds.</p>
-                <p><a href="https://www.canada.ca/en/innovation-science-economic-development/news/2022/06/the-artificial-intelligence-and-data-act-aida--companion-document.html" target="_blank" style="color:var(--sage); font-weight:800;">[GOVERNMENT POLICY: CANADA AIDA 2026]</a></p>
+                <p>Canada is currently drafting the <strong>Artificial Intelligence and Data Act (AIDA)</strong> to regulate "High-Impact" systems and ensure safety protocols.</p>
+                <p><a href="https://www.canada.ca/en/innovation-science-economic-development.html" target="_blank" style="color:var(--sage); font-weight:800;">[CANADA AIDA POLICY]</a></p>
             </div>
         </div>
     </div>
 
     <footer>
-        ELIZA HAYAT // UNIT 4: FINAL RESEARCH // 2026 // ACADEMIC DEPLOYMENT
+        ELIZA HAYAT // UNIT 4: FINAL PROJECT // JMSS-ICD2O-2026
     </footer>
 
     <script>
+        /* JavaScript Function for Single Page Navigation */
         function switchTab(tabId) {
-            // Hide all pages
+            // 1. Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
 
-            // Deactivate all buttons
+            // 2. Deactivate all buttons
             const buttons = document.querySelectorAll('.nav-links button');
             buttons.forEach(b => b.classList.remove('active'));
 
-            // Show selected
+            // 3. Show selected tab and highlight button
             document.getElementById(tabId).classList.add('active');
             document.getElementById('btn-' + tabId).classList.add('active');
             
-            // Back to top
+            // 4. Scroll back to top
             window.scrollTo(0, 0);
         }
     </script>
 </body>
 </html>
-</body>
-</html>
-
