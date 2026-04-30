@@ -14,6 +14,7 @@
             --sage: #6B7D6E;        
             --ink: #1A1A1A;         
             --border: #E0DDD8;      
+            --slate: #4A4A4A;
             --serif: 'Libre Baskerville', serif;
             --sans: 'Inter', sans-serif;
             --mono: 'JetBrains Mono', monospace;
@@ -55,22 +56,22 @@
             margin: 3.5rem 0; box-shadow: 10px 10px 0px var(--sage);
         }
 
-        .image-box {
-            border: 2px solid var(--ink);
-            margin: 2rem 0;
-            background: #eee;
-            overflow: hidden;
-            text-align: center;
-        }
-        .image-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .data-table { width: 100%; border-collapse: collapse; margin: 3rem 0; }
         .data-table th { background: var(--ink); color: white; padding: 1.5rem; text-align: left; font-size: 0.8rem; }
         .data-table td { padding: 1.5rem; border-bottom: 1px solid var(--border); background: white; }
+
+        .chart-box {
+            border: 2px solid var(--ink);
+            padding: 15px;
+            margin: 3rem 0;
+            background: white;
+            text-align: center;
+        }
+        .chart-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 2px;
+        }
 
         footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 8rem; font-family: var(--mono); font-size: 0.75rem; color: var(--sage); text-align: center; }
     </style>
@@ -79,7 +80,7 @@
 
     <nav>
         <div class="nav-content">
-            <span style="font-family: var(--mono); font-weight: 800; font-size: 1.1rem;">AGI_CORE_V1.3</span>
+            <span style="font-family: var(--mono); font-weight: 800; font-size: 1.1rem;">AGI_CORE_V1.0</span>
             <div class="nav-links">
                 <button onclick="switchTab('landing')" id="btn-landing" class="active">01 Intelligence</button>
                 <button onclick="switchTab('technical')" id="btn-technical">02 Architecture</button>
@@ -93,30 +94,30 @@
         <div class="container">
             <h1>The Intelligence Singularity</h1>
             
-            <div class="image-box">
-                <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Artificial Intelligence Visualization">
-            </div>
-            <p style="font-family: var(--mono); font-size: 0.7rem; color: var(--sage); margin-top: -1.5rem; text-align: center; margin-bottom: 3rem;">
-                [ FIG A: NEURAL ARCHITECTURE REPRESENTATION ]
-            </p>
-
             <p style="font-size: 1.5rem; font-weight: 300; border-left: 5px solid var(--sage); padding-left: 2rem; margin: 4rem 0;">
-                A comprehensive dossier on <strong>Artificial General Intelligence</strong>: the transition from predictive modeling to recursive cognition.
+                A comprehensive dossier on <strong>Artificial General Intelligence</strong>: the transition from predictive modeling to recursive, human-equivalent cognition.
             </p>
 
-            <div class="image-box">
-                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-top: 10px;">AGI ARRIVAL PROBABILITY CHART</p>
-                <img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['2026','2030','2040'],datasets:[{label:'Probability',data:[12,45,78],backgroundColor:'%236B7D6E'}]}}" alt="AGI Timeline Graph">
+            <div class="chart-box">
+                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">FIG. 1: EXPERT PREDICTIONS ON AGI TIMELINES</p>
+                <img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['2026','2030','2035','2040','2045'],datasets:[{label:'AGI Probability %',data:[10,35,55,75,90],backgroundColor:'rgba(107, 125, 110, 0.8)'}]}}" alt="AGI Probability Graph">
             </div>
 
             <h3>Defining General Intelligence</h3>
-            <p>Artificial General Intelligence (AGI) solves the problem of "brittle AI" by applying logic across multiple domains simultaneously without human prompts.</p>
+            <p>Artificial General Intelligence (AGI) is the "Singularity" of computer science. While today's AI is <strong>Narrow</strong> (meaning it can only do one task, like playing chess or generating text), AGI solves the problem of <strong>cross-domain reasoning</strong>. It functions by mimicking the human brain's ability to apply knowledge from one area (like math) to a completely different area (like art), creating a system that can learn anything without human intervention.</p>
+            
+            <div class="chart-box">
+                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">FIG. 2: NEURAL NETWORK VISUALIZATION</p>
+                <img src="https://placehold.co/600x400/6B7D6E/FFFFFF?text=AGI+Neural+Architecture" alt="AGI Neural Network Diagram">
+            </div>
         </div>
     </div>
 
     <div id="technical" class="page">
         <div class="container">
             <h2>Technical Architecture</h2>
+            <p>To reach AGI, researchers are moving away from simple pattern matching. Instead, they utilize <strong>Neuro-Symbolic hybrids</strong> that combine neural network "learning" with symbolic "logic." This roughly works by creating a multi-layered system that checks its own work for hallucinations before outputting a result.</p>
+            
             <table class="data-table">
                 <thead>
                     <tr>
@@ -129,40 +130,47 @@
                     <tr>
                         <td>System 2 Thinking</td>
                         <td>Chain-of-Thought (CoT)</td>
-                        <td>Enables step-by-step reasoning logic.</td>
+                        <td>Forces the model to reason step-by-step to minimize logical errors.</td>
                     </tr>
                     <tr>
                         <td>Recursion</td>
                         <td>Self-Optimization</td>
-                        <td>Allows the AI to rewrite its own code.</td>
+                        <td>AI analyzes its own neural weights to improve performance autonomously.</td>
+                    </tr>
+                    <tr>
+                        <td>Transfer Learning</td>
+                        <td>Domain Adaptation</td>
+                        <td>The ability to take a skill learned in coding and apply it to biology.</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="research-card">
-                <h3>HTML Insights</h3>
-                <p>The layout uses a <strong>Single Page Application</strong> structure. I used JavaScript to handle tab visibility and CSS Variables for global theme management.</p>
+                <h3>Current Applications</h3>
+                <p>Today, AGI foundations are used in <strong>Pharmaceutical Research</strong> to simulate protein folding and in <strong>Autonomous Robotics</strong> where machines must navigate unpredictable environments like construction sites or hospitals.</p>
             </div>
         </div>
     </div>
 
     <div id="impact" class="page">
         <div class="container">
-            <h2>Labor & Economics</h2>
+            <h2>Labor Displacement & Economics</h2>
             <div class="research-card">
-                <h3>Macro-Economic Reality</h3>
-                <p>AGI is projected to impact various sectors by automating cognitive labor, moving the global economy toward a "post-labor" framework.</p>
-                <p><a href="https://www.imf.org" target="_blank" style="color:var(--sage); font-weight:800;">[RESEARCH SOURCE: IMF]</a></p>
+                <h3>The 2026 Labor Shift</h3>
+                <p>The social impact of AGI is a double-edged sword. Economically, it creates <strong>Cognitive Abundance</strong>, where the cost of intelligence becomes nearly free, potentially solving global crises like disease and energy. However, it also creates a <strong>Labor Crisis</strong>. Unlike the industrial revolution which replaced muscles, AGI replaces "minds." Experts suggest this will require a total restructure of our tax systems, moving toward a "Robot Tax" to fund social safety nets as traditional 9-5 jobs disappear.</p>
+                <p><a href="https://www.goldmansachs.com" target="_blank" style="color:var(--sage); font-weight:800;">[READ: LABOR IMPACT REPORT]</a></p>
             </div>
         </div>
     </div>
 
     <div id="ethics" class="page">
         <div class="container">
-            <h2>Policy & Alignment</h2>
+            <h2>Global Policy & Alignment</h2>
             <div class="research-card" style="border-left: 10px solid var(--ink);">
-                <h3>Canada's Digital Leadership</h3>
-                <p>The <strong>Artificial Intelligence and Data Act (AIDA)</strong> represents Canada's commitment to safety standards for high-impact systems.</p>
+                <h3>The Alignment Problem</h3>
+                <p>A major ethical concern is <strong>Alignment</strong>: ensuring an AGI's goals match human values. If an AGI is given a goal without ethical constraints, it may take "efficient" but harmful shortcuts to achieve it. This is why policy is catching up to code.</p>
+                <h3>Canada's AIDA Act</h3>
+                <p>To ensure AGI safety, Canada’s <strong>Artificial Intelligence and Data Act</strong> mandates strict oversight for 'High-Impact' systems to prevent biased or harmful autonomous decision-making.</p>
                 <p><a href="https://www.canada.ca/en.html" target="_blank" style="color:var(--sage); font-weight:800;">[GOV POLICY: CANADA AIDA]</a></p>
             </div>
         </div>
@@ -174,15 +182,23 @@
 
     <script>
         function switchTab(tabId) {
+            // Find all elements with class 'page' and hide them
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
+
+            // Find all nav buttons and remove the 'active' styling
             const buttons = document.querySelectorAll('.nav-links button');
             buttons.forEach(b => b.classList.remove('active'));
+
+            // Show the specific page the user clicked on
             document.getElementById(tabId).classList.add('active');
+            
+            // Add the 'active' class to the clicked button for styling
             document.getElementById('btn-' + tabId).classList.add('active');
+            
+            // Scroll to the top of the new page
             window.scrollTo(0, 0);
         }
     </script>
 </body>
 </html>
-
