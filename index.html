@@ -71,6 +71,8 @@
             max-width: 100%;
             height: auto;
             border-radius: 2px;
+            display: block;
+            margin: 0 auto;
         }
 
         footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 8rem; font-family: var(--mono); font-size: 0.75rem; color: var(--sage); text-align: center; }
@@ -107,8 +109,8 @@
             <p>Artificial General Intelligence (AGI) is the "Singularity" of computer science. While today's AI is <strong>Narrow</strong> (meaning it can only do one task, like playing chess or generating text), AGI solves the problem of <strong>cross-domain reasoning</strong>. It functions by mimicking the human brain's ability to apply knowledge from one area (like math) to a completely different area (like art), creating a system that can learn anything without human intervention.</p>
             
             <div class="chart-box">
-                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">FIG. 2: NEURAL NETWORK VISUALIZATION</p>
-                <img src="https://placehold.co/600x400/6B7D6E/FFFFFF?text=AGI+Neural+Architecture" alt="AGI Neural Network Diagram">
+                <p style="font-family: var(--mono); font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">FIG. 2: CONCEPTUAL NEURAL MAPPING</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/600px-Colored_neural_network.svg.png" alt="Neural Network Structure Diagram">
             </div>
         </div>
     </div>
@@ -182,21 +184,14 @@
 
     <script>
         function switchTab(tabId) {
-            // Find all elements with class 'page' and hide them
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
 
-            // Find all nav buttons and remove the 'active' styling
             const buttons = document.querySelectorAll('.nav-links button');
             buttons.forEach(b => b.classList.remove('active'));
 
-            // Show the specific page the user clicked on
             document.getElementById(tabId).classList.add('active');
-            
-            // Add the 'active' class to the clicked button for styling
             document.getElementById('btn-' + tabId).classList.add('active');
-            
-            // Scroll to the top of the new page
             window.scrollTo(0, 0);
         }
     </script>
